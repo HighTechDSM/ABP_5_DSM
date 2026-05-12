@@ -91,7 +91,7 @@ Soccer Inspector é um software de análise de desempenho físico de atletas que
 |CARGO | NOME| SOCIAL MEDIA |
 |------|-----|:--------------:|
 | P.O (Product Owner) |   André Ventura   |     <a target="_blank" href="https://github.com/AndreHVentura"><img  src="https://skillicons.dev/icons?i=github"></a>|
-| P.O (Scrum Master) |   André Michel   |     <a target="_blank" href="https://github.com/AndreHVentura"><img  src="https://skillicons.dev/icons?i=github"></a>|
+| P.O (Scrum Master) |   André Michel   |     <a target="_blank" href="https://github.com/andremc331"><img  src="https://skillicons.dev/icons?i=github"></a>|
 | P.O (Developer) |   Bruno Henrique   |     <a target="_blank" href="https://github.com/BrunoHenrique258"><img  src="https://skillicons.dev/icons?i=github"></a>|
 | P.O (Developer) |   Edlaine Souza   |     <a target="_blank" href="https://github.com/edlaine-souza"><img  src="https://skillicons.dev/icons?i=github"></a>|
 | P.O (Developer) |   Eduardo Henrique  |     <a target="_blank" href="https://github.com/EduardoBrito2"><img  src="https://skillicons.dev/icons?i=github"></a>|
