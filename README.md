@@ -20,32 +20,32 @@ Soccer Inspector é um software de análise de desempenho físico de atletas que
 
 #Tecnologias Utilizadas
 
-##Mobile
+Mobile
 <p>
   <img src="https://skillicons.dev/icons?i=flutter,dart" />
 </p>
 
-##Frontend Web
+Frontend Web
 <p>
   <img src="https://skillicons.dev/icons?i=react,typescript,html,css,javascript" />
 </p>
 
-##Backend & API
+Backend & API
 <p>
   <img src="https://skillicons.dev/icons?i=nodejs,typescript,python" />
 </p>
 
-##Banco de Dados
+Banco de Dados
 <p>
   <img src="https://skillicons.dev/icons?i=postgresql" />
 </p>
 
-##Inteligência Artificial
+Inteligência Artificial
 <p>
   <img src="https://skillicons.dev/icons?i=python,tensorflow" />
 </p>
 
-##Ferramentas e DevOps
+Ferramentas e DevOps
 <p>
   <img src="https://skillicons.dev/icons?i=git,github,docker,figma,vscode" />
 </p>
@@ -60,29 +60,74 @@ Soccer Inspector é um software de análise de desempenho físico de atletas que
 
 ---
 
-# 🏁 Detalhamento das Sprints
+#Detalhamento das Sprints
 
-## 🚀 Sprint 1 (DATA)
-### O que foi feito:
--
+## Sprint 1 — Planejamento e Estruturação do Projeto
 
-### Problemas encontrados durante a Sprint 1:
-- 
+### ✅ O que foi desenvolvido
 
-### Tecnologias usadas:
-- 
+- Configuração inicial do ambiente Flutter
+- Criação e organização do repositório no GitHub
+- Configuração do GitHub Projects
+- Definição do padrão de branches
+- Desenvolvimento dos wireframes da aplicação
+- Criação do protótipo navegável no Figma
+- Definição da identidade visual inicial
+- Validação do fluxo do usuário
+- Modelagem relacional do banco de dados
+- Desenvolvimento dos scripts SQL
+- Criação do diagrama de componentes
+
+## ⚠️ Desafios encontrados
+
+- Definição da arquitetura inicial do sistema
+- Organização das responsabilidades da equipe
+- Ajustes no fluxo de navegação da aplicação
+- Estruturação inicial do banco de dados
+- Padronização do versionamento Git
+
+## 🛠️ Tecnologias utilizadas
+
+<p>
+  <img src="https://skillicons.dev/icons?i=flutter,dart,figma,postgresql,git,github,vscode" />
+</p>
 
 ---
 
-## 🚀 Sprint 2 (DATA)
-### O que foi feito:
-- 
+##  Sprint 2 — Desenvolvimento das Funcionalidades
 
-### Problemas encontrados durante a Sprint 2:
-- 
+## 🔄 Em desenvolvimento
+- CRUD de jogadores
+- Desenvolvimento da API principal
+- Desenvolvimento da API de IA
+- Integração com PostgreSQL
+- Integração entre API e IA
+- Criação dos endpoints
+- Análise exploratória dos dados (EDA)
+- Desenvolvimento do modelo de rede neural
+- Feature Engineering
+- Implementação de gráficos e dashboards
+- Desenvolvimento das telas funcionais
+- Exportação do modelo de IA
+- Testes unitários backend
+- Testes de interface Flutter
+- Testes dos endpoints
+- Configuração do GitHub Actions
+- Estruturação de documentação da API
+- Configuração da comunicação entre serviços
 
-### Tecnologias usadas:
-- 
+## ⚠️ Desafios atuais
+
+- Integração entre IA e backend
+- Performance das consultas
+- Padronização da comunicação API ↔ Mobile
+- Ajustes no treinamento do modelo
+
+## 🛠️ Tecnologias utilizadas
+
+<p>
+  <img src="https://skillicons.dev/icons?i=flutter,dart,react,typescript,nodejs,python,postgresql,docker,git,github" />
+</p>
 
 ---
 
