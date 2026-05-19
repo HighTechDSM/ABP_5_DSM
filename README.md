@@ -50,6 +50,108 @@ Ferramentas e DevOps
   <img src="https://skillicons.dev/icons?i=git,github,docker,figma,vscode" />
 </p>
 
+#Estrutura de Pastas
+
+soccer-inspector/
+│
+├── mobile/           
+│   ├── android/
+│   ├── lib/
+│   ├── test/
+│   ├── web/
+│   ├── pubspec.yaml
+│   
+│
+├── frontend-web/          
+│   ├── src/
+│   ├── public/
+│   ├── package.json
+│   
+│
+├── backend/        
+│   ├── src/
+│   │   ├── controllers/
+│   │   ├── models/
+│   │   ├── routes/
+│   │   ├── services/
+│   │   └── utils/
+│   ├── package.json
+│   
+│
+├── ai-service/            
+│   ├── models/
+│   ├── notebooks/
+│   ├── src/
+│   ├── requirements.txt
+│  
+│
+├── database/              
+│   ├── schema.sql
+│   ├── seeds/
+│   └── migrations/
+│
+├── docker/                  
+│   ├── Dockerfile.mobile
+│   ├── Dockerfile.backend
+│   ├── Dockerfile.ai
+│   └── docker-compose.yml
+│
+├── docs/                 
+│   ├── api/
+│   ├── diagrams/
+│   └── wireframes/
+│
+└── .github/             
+    └── workflows/
+
+## 🏗️ Arquitetura do Projeto
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ CLIENTES │
+├─────────────────────────────────┬───────────────────────────────────────────┤
+│ │ │
+│ ┌──────────────────┐ │ ┌──────────────────┐ │
+│ │ Mobile App │ │ │ Web App │ │
+│ │ (Flutter) │ │ │ (React) │ │
+│ └────────┬─────────┘ │ └────────┬─────────┘ │
+│ │ │ │ │
+│ └────────────────────┼─────────────────┘ │
+│ │ │
+│ HTTP/JSON│ │
+│ │ │
+└────────────────────────────────┼───────────────────────────────────────────┘
+│
+▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ API GATEWAY / LOAD BALANCER │
+│ │ │
+└────────────────────────────────────┼────────────────────────────────────────┘
+│
+▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ BACKEND (Node.js) │
+│ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ │
+│ │ Controllers │ │ Services │ │ Models │ │ Routes │ │
+│ └──────┬──────┘ └──────┬──────┘ └──────┬──────┘ └─────────────┘ │
+│ │ │ │ │
+│ └────────────────┼────────────────┘ │
+│ │ │
+└──────────────────────────┼─────────────────────────────────────────────────┘
+│
+┌────────────┼────────────┐
+│ │ │
+▼ ▼ ▼
+┌─────────────────┐ ┌─────────────┐ ┌─────────────────┐
+│ PostgreSQL │ │ AI Service │ │ Redis │
+│ (Database) │ │ (Python) │ │ (Cache) │
+└─────────────────┘ └──────┬──────┘ └─────────────────┘
+│
+▼
+┌─────────────────┐
+│ TensorFlow │
+│ Model │
+└─────────────────┘
+
 
 # 🗂️ SPRINTS
 | Sprint | Data de Início | Data de Entrega | Status  |
