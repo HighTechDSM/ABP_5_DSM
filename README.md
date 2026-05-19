@@ -57,25 +57,25 @@ soccer-inspector/
 
 ├── mobile/
 
-│   ├── android/
+│       ├── android/
 
-│   ├── lib/
+│       ├── lib/
 
-│   ├── test/
+│       ├── test/
 
-│   ├── web/
+│       ├── web/
 
-│   ├── pubspec.yaml
+│       ├── pubspec.yaml
 
 │   
 │
 ├── frontend-web/   
 
-│   ├── src/
+│       ├── src/
 
-│   ├── public/
+│       ├── public/
 
-│   ├── package.json
+│       ├── package.json
 
 │   
 │
@@ -83,64 +83,63 @@ soccer-inspector/
 
 │   ├── src/
 
-│   │   ├── controllers/
+│       │    ├── controllers/
 
-│   │   ├── models/
+│       │    ├── models/
 
-│   │   ├── routes/
+│       │    ├── routes/
 
-│   │   ├── services/
+│       │    ├── services/
 
-│   │   └── utils/
+│       │    └── utils/
 
-│   ├── package.json
+│       ├── package.json
 
 │   
 │
 ├── ai-service/   
 
-│   ├── models/
+│       ├── models/
 
-│   ├── notebooks/
+│       ├── notebooks/
 
-│   ├── src/
+│       ├── src/
 
-│   ├── requirements.txt
+│       ├── requirements.txt
 
 │  
 │
 ├── database/    
 
-│   ├── schema.sql
+│       ├── schema.sql
 
-│   ├── seeds/
+│       ├── seeds/
 
-│   └── migrations/
+│       └── migrations/
 
 │
 ├── docker/      
 
-│   ├── Dockerfile.mobile
+│       ├── Dockerfile.mobile
 
-│   ├── Dockerfile.backend
+│       ├── Dockerfile.backend
 
-│   ├── Dockerfile.ai
+│       ├── Dockerfile.ai
 
-│   └── docker-compose.yml
+│       └── docker-compose.yml
 
 │
 ├── docs/   
 
-│   ├── api/
+│       ├── api/
 
-│   ├── diagrams/
+│       ├── diagrams/
 
-│   └── wireframes/
+│       └── wireframes/
 
 │
 └── .github/  
-
-    └── workflows/
+        └── workflows/
     
 
 
