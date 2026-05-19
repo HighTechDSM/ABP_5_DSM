@@ -7,42 +7,56 @@ Repositório do projeto integrador do 5° semestre do curso de Desenvolvimento d
 Soccer Inspector é um software de análise de desempenho físico de atletas que compõem o plantel de um time de futebol, com base no histórico de registro de atividade dos jogadores ao longo de partidas com o objetivo de identificar perfis de jogadores e seus desempenhos.
 </div>
 
-</>Markdown
-#Tecnologias utilizadas
+![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
+![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![NodeJS](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
-![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
+![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
 
-## 💻 Frontend
+#Tecnologias Utilizadas
+
+##Mobile
 <p>
-  <img src="https://skillicons.dev/icons?i=react,typescript,javascript,html,css" />
+  <img src="https://skillicons.dev/icons?i=flutter,dart" />
 </p>
 
-## ⚙️ Backend
+##Frontend Web
 <p>
-  <img src="https://skillicons.dev/icons?i=nodejs,express,typescript" />
+  <img src="https://skillicons.dev/icons?i=react,typescript,html,css,javascript" />
 </p>
 
-## 🗄️ Banco de Dados
+##Backend & API
 <p>
-  <img src="https://skillicons.dev/icons?i=mongodb,mysql" />
+  <img src="https://skillicons.dev/icons?i=nodejs,typescript,python" />
 </p>
 
-## 🛠️ Ferramentas
+##Banco de Dados
 <p>
-  <img src="https://skillicons.dev/icons?i=git,github,figma,vscode,docker" />
+  <img src="https://skillicons.dev/icons?i=postgresql" />
+</p>
+
+##Inteligência Artificial
+<p>
+  <img src="https://skillicons.dev/icons?i=python,tensorflow" />
+</p>
+
+##Ferramentas e DevOps
+<p>
+  <img src="https://skillicons.dev/icons?i=git,github,docker,figma,vscode" />
 </p>
 
 
 # 🗂️ SPRINTS
 | Sprint | Data de Início | Data de Entrega | Status  |
 |--------|----------------|-----------------|---------|
-|  1     | :calendar: ➡ () | 📆 ➡ () |  Encerrado |
-|  2     | :calendar: ➡ () | 📆 ➡ () |  Em Andamento |
-|  3     | :calendar: ➡ () | 📆 ➡ () |  Em Andamento |
+|  1     | :calendar: ➡ (13/04/2026) | 📆 ➡ (30/04/2026) |  Encerrado |
+|  2     | :calendar: ➡ (04/05/2026) | 📆 ➡ (21/05/2026) |  Em Andamento |
+|  3     | :calendar: ➡ (25/05/2026) | 📆 ➡ (11/06/2026) |  Em Andamento |
 
 ---
 
