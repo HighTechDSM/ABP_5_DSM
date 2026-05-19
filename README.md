@@ -54,55 +54,94 @@ Ferramentas e DevOps
 
 soccer-inspector/
 │
-├── mobile/           
+
+├── mobile/
+
 │   ├── android/
+
 │   ├── lib/
+
 │   ├── test/
+
 │   ├── web/
+
 │   ├── pubspec.yaml
+
 │   
 │
-├── frontend-web/          
+├── frontend-web/   
+
 │   ├── src/
+
 │   ├── public/
+
 │   ├── package.json
+
 │   
 │
-├── backend/        
+├── backend/   
+
 │   ├── src/
+
 │   │   ├── controllers/
+
 │   │   ├── models/
+
 │   │   ├── routes/
+
 │   │   ├── services/
+
 │   │   └── utils/
+
 │   ├── package.json
+
 │   
 │
-├── ai-service/            
+├── ai-service/   
+
 │   ├── models/
+
 │   ├── notebooks/
+
 │   ├── src/
+
 │   ├── requirements.txt
+
 │  
 │
-├── database/              
+├── database/    
+
 │   ├── schema.sql
+
 │   ├── seeds/
+
 │   └── migrations/
+
 │
-├── docker/                  
+├── docker/      
+
 │   ├── Dockerfile.mobile
+
 │   ├── Dockerfile.backend
+
 │   ├── Dockerfile.ai
+
 │   └── docker-compose.yml
+
 │
-├── docs/                 
+├── docs/   
+
 │   ├── api/
+
 │   ├── diagrams/
+
 │   └── wireframes/
+
 │
-└── .github/             
+└── .github/  
+
     └── workflows/
+    
 
 
 # 🗂️ SPRINTS
