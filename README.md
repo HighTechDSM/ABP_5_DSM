@@ -51,57 +51,6 @@ Ferramentas e DevOps
   <img src="https://skillicons.dev/icons?i=git,github,docker,figma,vscode" />
 </p>
 
-#Estrutura de Pastas
-
-soccer-inspector/
-│
-
-  ├── mobile/
-      ├── android/
-      ├── lib/
-      ├── test/
-      ├── web/
-      ├── pubspec.yaml
-
-  ├── frontend-web/   
-      ├── src/
-      ├── public/
-      ├── package.json
-
-  ├── backend/   
-      ├── src/
-      ├── controllers/
-      ├── models/
-      ├── routes/
-      ├── services/
-      └── utils/
-
-  ├── package.json
-  
-  ├── ai-service/   
-      ├── models/
-      ├── notebooks/
-      ├── src/
-      ├── requirements.txt
-      ├── database/    
-      ├── schema.sql
-      ├── seeds/
-      └── migrations/
-
-  ├── docker/      
-      ├── Dockerfile.mobile
-      ├── Dockerfile.backend
-      ├── Dockerfile.ai
-      └── docker-compose.yml
-
-  ├── docs/   
-      ├── api/
-      ├── diagrams/
-      └── wireframes/
-  └── .github/  
-      └── workflows/
-    
-
 
 # 🗂️ SPRINTS
 | Sprint | Data de Início | Data de Entrega | Status  |
@@ -226,6 +175,9 @@ soccer-inspector/
 
 ### 🎨 FIGMA
 [Clique Aqui](https://www.figma.com/design/bd0lFd0Tk7shoq7ah2BCfa/Untitled?node-id=0-1&t=dRorqfMjBMjTMjgO-1)
+
+### Jupiter
+[Clique Aqui]()
 
 # :computer: EQUIPE
 
