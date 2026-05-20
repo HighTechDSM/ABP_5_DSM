@@ -7,6 +7,7 @@ Repositório do projeto integrador do 5° semestre do curso de Desenvolvimento d
 Soccer Inspector é um software de análise de desempenho físico de atletas que compõem o plantel de um time de futebol, com base no histórico de registro de atividade dos jogadores ao longo de partidas com o objetivo de identificar perfis de jogadores e seus desempenhos.
 </div>
 
+
 ![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
 ![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
@@ -55,91 +56,50 @@ Ferramentas e DevOps
 soccer-inspector/
 │
 
-├── mobile/
+  ├── mobile/
+      ├── android/
+      ├── lib/
+      ├── test/
+      ├── web/
+      ├── pubspec.yaml
 
-│       ├── android/
+  ├── frontend-web/   
+      ├── src/
+      ├── public/
+      ├── package.json
 
-│       ├── lib/
+  ├── backend/   
+      ├── src/
+      ├── controllers/
+      ├── models/
+      ├── routes/
+      ├── services/
+      └── utils/
 
-│       ├── test/
+  ├── package.json
+  
+  ├── ai-service/   
+      ├── models/
+      ├── notebooks/
+      ├── src/
+      ├── requirements.txt
+      ├── database/    
+      ├── schema.sql
+      ├── seeds/
+      └── migrations/
 
-│       ├── web/
+  ├── docker/      
+      ├── Dockerfile.mobile
+      ├── Dockerfile.backend
+      ├── Dockerfile.ai
+      └── docker-compose.yml
 
-│       ├── pubspec.yaml
-
-│   
-│
-├── frontend-web/   
-
-│       ├── src/
-
-│       ├── public/
-
-│       ├── package.json
-
-│   
-│
-├── backend/   
-
-│   ├── src/
-
-│       │    ├── controllers/
-
-│       │    ├── models/
-
-│       │    ├── routes/
-
-│       │    ├── services/
-
-│       │    └── utils/
-
-│       ├── package.json
-
-│   
-│
-├── ai-service/   
-
-│       ├── models/
-
-│       ├── notebooks/
-
-│       ├── src/
-
-│       ├── requirements.txt
-
-│  
-│
-├── database/    
-
-│       ├── schema.sql
-
-│       ├── seeds/
-
-│       └── migrations/
-
-│
-├── docker/      
-
-│       ├── Dockerfile.mobile
-
-│       ├── Dockerfile.backend
-
-│       ├── Dockerfile.ai
-
-│       └── docker-compose.yml
-
-│
-├── docs/   
-
-│       ├── api/
-
-│       ├── diagrams/
-
-│       └── wireframes/
-
-│
-└── .github/  
-        └── workflows/
+  ├── docs/   
+      ├── api/
+      ├── diagrams/
+      └── wireframes/
+  └── .github/  
+      └── workflows/
     
 
 
