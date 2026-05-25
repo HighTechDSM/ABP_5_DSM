@@ -146,7 +146,7 @@ Ferramentas e DevOps
 
 # BURNDOWN SP1
  <div align = center>
- <img src="">
+ <img src="./assets/burndown-sp1.png" width="700">
  </div>
 
 -----------------------------------------------------------------------------------
