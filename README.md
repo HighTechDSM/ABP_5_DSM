@@ -8,6 +8,7 @@ Soccer Inspector é um software de análise de desempenho físico de atletas que
 </div>
 
 
+
 ![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
 ![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
@@ -19,7 +20,7 @@ Soccer Inspector é um software de análise de desempenho físico de atletas que
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
 ![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
 
-#Tecnologias Utilizadas
+Tecnologias Utilizadas
 
 Mobile
 <p>
@@ -56,7 +57,7 @@ Ferramentas e DevOps
 | Sprint | Data de Início | Data de Entrega | Status  |
 |--------|----------------|-----------------|---------|
 |  1     | :calendar: ➡ (13/04/2026) | 📆 ➡ (30/04/2026) |  Encerrado |
-|  2     | :calendar: ➡ (04/05/2026) | 📆 ➡ (21/05/2026) |  Em Andamento |
+|  2     | :calendar: ➡ (04/05/2026) | 📆 ➡ (21/05/2026) |  Encerrado |
 |  3     | :calendar: ➡ (25/05/2026) | 📆 ➡ (11/06/2026) |  Em Andamento |
 
 ---
@@ -146,7 +147,7 @@ Ferramentas e DevOps
 
 # BURNDOWN SP1
  <div align = center>
- <img src="">
+ <img src="./assets/burndown-sp1.png" width="700">
  </div>
 
 -----------------------------------------------------------------------------------
@@ -167,16 +168,15 @@ Ferramentas e DevOps
 
 # 🔗 LINKS
 
-### 🧮 BACKLOG DO PRODUTO 
+### BACKLOG DO PRODUTO 
 [Clique Aqui](https://github.com/HighTechDSM/ABP_5_DSM/issues)
 
-### 📖 REQUISITOS DO CLIENTE
-[Clique Aqui]()
 
-### 🎨 FIGMA
+### Prototipo do aplicativo
 [Clique Aqui](https://www.figma.com/design/bd0lFd0Tk7shoq7ah2BCfa/Untitled?node-id=0-1&t=dRorqfMjBMjTMjgO-1)
 
-### Jupiter
+
+### Prototipo da IA
 [Clique Aqui]()
 
 # :computer: EQUIPE
@@ -184,9 +184,9 @@ Ferramentas e DevOps
 |CARGO | NOME| SOCIAL MEDIA |
 |------|-----|:--------------:|
 | P.O (Product Owner) |   André Ventura   |     <a target="_blank" href="https://github.com/AndreHVentura"><img  src="https://skillicons.dev/icons?i=github"></a>|
-| P.O (Scrum Master) |   André Michel   |     <a target="_blank" href="https://github.com/andremc331"><img  src="https://skillicons.dev/icons?i=github"></a>|
-| P.O (Developer) |   Bruno Henrique   |     <a target="_blank" href="https://github.com/BrunoHenrique258"><img  src="https://skillicons.dev/icons?i=github"></a>|
-| P.O (Developer) |   Edlaine Souza   |     <a target="_blank" href="https://github.com/edlaine-souza"><img  src="https://skillicons.dev/icons?i=github"></a>|
-| P.O (Developer) |   Eduardo Henrique  |     <a target="_blank" href="https://github.com/EduardoBrito2"><img  src="https://skillicons.dev/icons?i=github"></a>|
-| P.O (Developer) |   Luana Pinheiro  |     <a target="_blank" href="https://github.com/Luana873"><img  src="https://skillicons.dev/icons?i=github"></a>|
-| P.O (Developer) |   Rodrigo de Andrade   |     <a target="_blank" href="https://github.com/RodrigodeAndrade90"><img  src="https://skillicons.dev/icons?i=github"></a>|
+| S.M (Scrum Master) |   André Michel   |     <a target="_blank" href="https://github.com/andremc331"><img  src="https://skillicons.dev/icons?i=github"></a>|
+| DEV. (Developer) |   Bruno Henrique   |     <a target="_blank" href="https://github.com/BrunoHenrique258"><img  src="https://skillicons.dev/icons?i=github"></a>|
+| DEV. (Developer) |   Edlaine Souza   |     <a target="_blank" href="https://github.com/edlaine-souza"><img  src="https://skillicons.dev/icons?i=github"></a>|
+| DEV. (Developer) |   Eduardo Henrique  |     <a target="_blank" href="https://github.com/EduardoBrito2"><img  src="https://skillicons.dev/icons?i=github"></a>|
+| DEV. (Developer) |   Luana Pinheiro  |     <a target="_blank" href="https://github.com/Luana873"><img  src="https://skillicons.dev/icons?i=github"></a>|
+| DEV. (Developer) |   Rodrigo de Andrade   |     <a target="_blank" href="https://github.com/RodrigodeAndrade90"><img  src="https://skillicons.dev/icons?i=github"></a>|
