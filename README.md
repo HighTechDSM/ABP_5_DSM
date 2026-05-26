@@ -98,32 +98,35 @@ Ferramentas e DevOps
 
 ##  Sprint 2 — Desenvolvimento das Funcionalidades
 
-## 🔄 Em desenvolvimento
-- CRUD de jogadores
-- Desenvolvimento da API principal
-- Desenvolvimento da API de IA
-- Integração com PostgreSQL
-- Integração entre API e IA
-- Criação dos endpoints
-- Análise exploratória dos dados (EDA)
-- Desenvolvimento do modelo de rede neural
-- Feature Engineering
-- Implementação de gráficos e dashboards
-- Desenvolvimento das telas funcionais
-- Exportação do modelo de IA
-- Testes unitários backend
-- Testes de interface Flutter
-- Testes dos endpoints
-- Configuração do GitHub Actions
-- Estruturação de documentação da API
-- Configuração da comunicação entre serviços
+## ✅ O que foi desenvolvido
 
-## ⚠️ Desafios atuais
+- Desenvolvimento das telas funcionais do aplicativo
+- Implementação da estrutura base do Front-End
+- Integração do banco de dados PostgreSQL
+- Desenvolvimento da API principal
+- Criação dos endpoints da aplicação
+- Estruturação da comunicação entre serviços
+- Implementação da análise exploratória dos dados (EDA)
+- Desenvolvimento do modelo de rede neural
+- Aplicação de técnicas de Feature Engineering
+- Implementação de gráficos e dashboards
+- Configuração do GitHub Actions para automação
+- Estruturação da documentação da API
+- Desenvolvimento de testes unitários no backend
+- Implementação de testes de interface no Flutter
+- Realização de testes dos endpoints
+- Treinamento inicial do modelo de IA
+- Definição da arquitetura do sistema
+
+## ⚠️ Desafios encontrados
 
 - Integração entre IA e backend
-- Performance das consultas
-- Padronização da comunicação API ↔ Mobile
-- Ajustes no treinamento do modelo
+- Padronização da comunicação entre API e aplicativo mobile
+- Ajustes no treinamento e performance do modelo
+- Organização da estrutura de endpoints
+- Garantia de compatibilidade entre serviços
+- Performance das consultas no banco de dados
+- Estruturação inicial da automação de deploy e integração contínua
 
 ## 🛠️ Tecnologias utilizadas
 
@@ -133,15 +136,46 @@ Ferramentas e DevOps
 
 ---
 
-## 🚀 Sprint 3 (DATA)
-### O que foi feito:
--
+## 🚀 Sprint 3 — Integração, Segurança e Deploy
 
-### Problemas encontrados durante a Sprint 1:
-- 
+### 🔁 O que será desenvolvido
 
-### Tecnologias usadas:
-- 
+- Implementação da autenticação JWT
+- Desenvolvimento completo do CRUD de jogadores
+- Criação da API de IA integrada ao sistema
+- Implementação de criptografia de dados
+- Configuração de requisições HTTPS
+- Deploy do backend da aplicação
+- Deploy do banco de dados
+- Deploy do modelo de IA
+- Implementação do build APK Flutter
+- Criação de endpoints de importação de dados
+- Desenvolvimento de endpoint para consulta de desempenho
+- Integração da API de IA com o backend principal
+- Exportação do modelo treinado
+- Ajustes finais de layout e usabilidade
+- Correção de bugs gerais da aplicação
+- Realização de testes integrados
+- Execução de testes de usabilidade
+- Validação de entradas e segurança de dados
+- Testes completos dos endpoints
+- Melhorias de performance da aplicação
+
+### ⚠️ Desafios esperados
+
+- Garantir segurança na comunicação entre serviços
+- Estabilizar a integração entre IA, backend e mobile
+- Otimizar o deploy dos serviços em produção
+- Garantir desempenho adequado da aplicação
+- Minimizar falhas durante integração contínua
+- Ajustar compatibilidade entre ambientes
+- Garantir confiabilidade nos testes integrados
+
+### 🛠️ Tecnologias utilizadas
+
+<p>
+  <img src="https://skillicons.dev/icons?i=flutter,dart,react,typescript,nodejs,python,postgresql,docker,git,github,nginx" /> 
+</p>
 
 ---
 
@@ -177,7 +211,7 @@ Ferramentas e DevOps
 
 
 ### Prototipo da IA
-[Clique Aqui]()
+[Clique Aqui](https://colab.research.google.com/drive/1vNiqZ1nualDeYq6lT-kyqGMy6WJxspPS?usp=sharing)
 
 # :computer: EQUIPE
 
