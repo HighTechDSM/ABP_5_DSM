@@ -154,7 +154,7 @@ Ferramentas e DevOps
 
 # BURNDOWN SP2
  <div align = center>
- <img src="">
+ <img src="./assets/burndown-sp2.png" width="700">
  </div>
 
 -----------------------------------------------------------------------------------
