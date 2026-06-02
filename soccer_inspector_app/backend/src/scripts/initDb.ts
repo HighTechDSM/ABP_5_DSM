@@ -7,58 +7,26 @@ import path from 'path';
 const projectRoot = process.cwd();
 const __dirname = path.join(projectRoot, 'src', 'scripts');
 
-const initDatabase = async () => {
+export const initDatabase = async () => {
   try {
-    // Caminho para o arquivo SQL
-    const sqlPath = path.join(__dirname, '../../sql/init.sql');
-    
-    console.log('Looking for SQL file at:', sqlPath);
-    
-    // Verifica se o arquivo existe
+    const projectRoot = process.cwd();
+
+    const sqlPath = path.join(projectRoot, 'sql', 'init.sql');
+
+    console.log('📄 Procurando arquivo SQL em:', sqlPath);
+
     if (!fs.existsSync(sqlPath)) {
-      throw new Error(`SQL file not found at: ${sqlPath}`);
+      throw new Error(`Arquivo não encontrado: ${sqlPath}`);
     }
-    
-    const sql = fs.readFileSync(sqlPath, 'utf-8');
-    
-    // Divide as statements (ignorando linhas vazias e comentários)
-    const statements = sql
-      .split(';')
-      .filter(stmt => stmt.trim().length > 0 && !stmt.trim().startsWith('--'));
-    
-    console.log(`Found ${statements.length} SQL statements to execute`);
-    
-    for (let i = 0; i < statements.length; i++) {
-      const statement = statements[i].trim();
-      
-      // Pula comandos CREATE DATABASE (já deve estar criado)
-      if (statement.toUpperCase().startsWith('CREATE DATABASE')) {
-        console.log('Skipping CREATE DATABASE statement');
-        continue;
-      }
-      
-      // Pula comandos \c (conexão com banco)
-      if (statement.startsWith('\\c')) {
-        console.log('Skipping \\c statement');
-        continue;
-      }
-      
-      try {
-        await query(statement);
-        console.log(`✅ Executed statement ${i + 1}/${statements.length}`);
-      } catch (err) {
-        console.error(`❌ Error executing statement ${i + 1}:`, err);
-        // Continua com as próximas statements mesmo se uma falhar
-      }
-    }
-    
-    console.log('✅ Database initialization completed');
-  } catch (error) {
-    console.error('❌ Failed to initialize database:', error);
-  } finally {
-    process.exit();
+
+    const sql = fs.readFileSync(sqlPath, 'utf8');
+
+    console.log('🚀 Executando script SQL...');
+
+    await query(sql);
+
+    console.log('✅ Banco de dados inicializado com sucesso!');
+  } catch (error: any) {
+    console.error('❌ Erro ao inicializar banco:', error.message);
   }
 };
-
-// Executa a inicialização
-initDatabase();

@@ -72,7 +72,7 @@ export const PerfilService = {
   
   async getPerfilByJogador(athlete: string): Promise<any> {
     try {
-      const jogador = await JogadorService.getJogadorById(athlete);
+      const jogador = await JogadorService.getJogadorById(Number(athlete));
       if (!jogador) return null;
       
       const substitutos = await this.encontrarSubstitutos(jogador.posicao, jogador.perfil);
