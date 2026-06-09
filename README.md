@@ -52,10 +52,12 @@ Ferramentas e DevOps
 </p>
 
 ---
+
 # ARQUITETURA DO PROJETO
 
 
 ---
+
 # PRODUCT BACKLOG
 
 |ID   | Requisitos | Prioridade |
@@ -68,6 +70,7 @@ Ferramentas e DevOps
 |RF06	| Emitir alertas para a comissão técnica	| Média |
 |RF07	| Exibir dashboards e gráficos analíticos	| Alta |
 |RF08	| Disponibilizar acesso via dispositivos móveis	| Alta |
+
 ---
 
 # USER STORIES
@@ -115,6 +118,7 @@ Uma atividade será considerada concluída quando:
 ---
 
 # SPRINTS
+
 | Sprint | Data de Início | Data de Entrega | Status  |
 |--------|----------------|-----------------|---------|
 |  1     | :calendar: ➡ (13/04/2026) | 📆 ➡ (30/04/2026) |  Encerrado |
@@ -123,7 +127,7 @@ Uma atividade será considerada concluída quando:
 
 ---
 
-#Detalhamento das Sprints
+# DETALHAMENTO DAS SPRINTS
 
 ## Sprint 1 — Planejamento e Estruturação do Projeto
 
@@ -262,7 +266,7 @@ Uma atividade será considerada concluída quando:
 
 # SPRINT REVIEW
 
-### Sprint 1
+# Sprint 1
 
 ## O que funcionou bem
 
@@ -281,7 +285,7 @@ Uma atividade será considerada concluída quando:
 - Estruturar modelo de IA
 - Criar dashboards
 
-### Sprint 2
+# Sprint 2
 
 ## O que funcionou bem
 
