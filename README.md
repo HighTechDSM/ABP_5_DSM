@@ -329,41 +329,50 @@ Uma atividade será considerada concluída quando:
 
 # COMO EXECUTAR
 
-## Backend
+## Rodar o Backend
 
+No terminal, acesse a pasta do backend e execute:
+
+```bash
 cd backend
-
 npm install
-
 npm run dev
+```
 
 ---
 
-## Frontend
+## Rodar o Frontend
 
+No terminal, acesse a pasta do frontend e execute:
+
+```bash
 cd frontend
-
 npm install
-
 npm run dev
+```
 
 ---
 
-## Mobile
+## Rodar o Mobile
 
+Se estiver utilizando Flutter, execute:
+
+```bash
 cd mobile
-
 flutter pub get
-
 flutter run
+```
 
 ---
 
-## IA
+## Rodar a IA
 
+Instale as dependências e execute a aplicação:
+
+```bash
 pip install -r requirements.txt
-
 python app.py
+```
 
 ---
 
