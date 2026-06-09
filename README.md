@@ -8,7 +8,6 @@ Soccer Inspector é um software de análise de desempenho físico de atletas que
 </div>
 
 
-
 ![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
 ![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
@@ -20,7 +19,7 @@ Soccer Inspector é um software de análise de desempenho físico de atletas que
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
 ![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
 
-Tecnologias Utilizadas
+# TECNOLOGIAS UTILIZADAS
 
 Mobile
 <p>
@@ -52,13 +51,75 @@ Ferramentas e DevOps
   <img src="https://skillicons.dev/icons?i=git,github,docker,figma,vscode" />
 </p>
 
+---
+# ARQUITETURA DO PROJETO
 
-# 🗂️ SPRINTS
+
+---
+# PRODUCT BACKLOG
+
+|ID   | Requisitos | Prioridade |
+|-----|------------|------------|
+|RF01 |	Importar dados históricos de partidas para o banco de dados	| Alta |
+|RF02 |	Permitir importação de novos dados de desempenho	| Alta |
+|RF03	| Identificar perfis de jogadores através de IA	| Alta |
+|RF04	| Comparar atletas com base em indicadores de desempenho	| Média |
+|RF05	| Detectar quedas de desempenho automaticamente	| Alta |
+|RF06	| Emitir alertas para a comissão técnica	| Média |
+|RF07	| Exibir dashboards e gráficos analíticos	| Alta |
+|RF08	| Disponibilizar acesso via dispositivos móveis	| Alta |
+---
+
+# USER STORIES
+
+### US01 – Importação de Dados
+
+Como analista de desempenho, quero importar dados históricos dos jogadores, 
+para que o sistema possa realizar análises e identificar padrões.
+
+### US02 – Comparação de Jogadores
+
+Como preparador físico, quero comparar jogadores com características semelhantes,
+para que eu possa definir treinamentos individualizados.
+
+### US03 – Detecção de Queda de Desempenho
+
+Como membro da comissão técnica, quero receber alertas quando um atleta apresentar queda de desempenho,
+para agir preventivamente.
+
+### US04 – Visualização de Indicadores
+
+Como analista, quero visualizar dashboards e gráficos,
+para interpretar os dados rapidamente.
+
+### US05 – Acesso Mobile
+
+Como treinador, quero acessar as análises pelo celular,
+para acompanhar os atletas em qualquer lugar.
+
+---
+
+# DEFINITION OF DONE
+
+Uma atividade será considerada concluída quando:
+
+- Código implementado
+- Revisão realizada por outro integrante
+- Commit enviado para o repositório
+- Build executada sem erros
+- Testes realizados
+- Issue vinculada encerrada
+- Documentação atualizada
+- Integração com demais módulos validada
+
+---
+
+# SPRINTS
 | Sprint | Data de Início | Data de Entrega | Status  |
 |--------|----------------|-----------------|---------|
 |  1     | :calendar: ➡ (13/04/2026) | 📆 ➡ (30/04/2026) |  Encerrado |
 |  2     | :calendar: ➡ (04/05/2026) | 📆 ➡ (21/05/2026) |  Encerrado |
-|  3     | :calendar: ➡ (25/05/2026) | 📆 ➡ (11/06/2026) |  Em Andamento |
+|  3     | :calendar: ➡ (25/05/2026) | 📆 ➡ (16/06/2026) |  Em Andamento |
 
 ---
 
@@ -179,6 +240,68 @@ Ferramentas e DevOps
 
 ---
 
+# SPRINT BACKLOGS
+|Issue | Atividade | Responsável | Estimativa | Requisito |
+|------|-----------|-------------|------------|-----------|
+| #35	 | Autenticação JWT |	Eduardo |	8 pts |	RNF02 |
+| #36	 | Validação de Entrada |	Eduardo |	5 pts |	RNF02 |
+| #34	 | Criptografia de Dados | Eduardo | 8 pts | RNF02 |
+| #33	 | HTTPS | Eduardo | 3 pts |RNF02 |
+| #16	 | CRUD Jogadores |	Equipe Backend | 8 pts | RF01 |
+| #17	 | Importação de Dados | Equipe Backend	| 5 pts	| RF02 |
+| #18	 | Consulta de Desempenho |	Equipe IA	| 8 pts |	RF05 |
+| #22	 | Integração API IA | Equipe Backend	| 8 pts |	RF03 |
+| #39	 | Testes de Usabilidade | Equipe Frontend | 5 pts | RNF01 |
+| #38	 | Testes Integrados | Equipe QA | 8 pts | RNF04 |
+| #41	 | Deploy Backend |	DevOps | 5 pts | RP02 |
+| #42	 | Deploy Banco |	DevOps | 5 pts | RP02 |
+| #43	 | Deploy IA | DevOps | 5 pts	| RP02 |
+| #44	 | Build APK Flutter |	Mobile | 3 pts | RF08 |
+
+---
+
+# SPRINT REVIEW
+
+### Sprint 1
+
+## O que funcionou bem
+
+- Organização inicial da equipe
+- Criação do protótipo
+- Definição da arquitetura
+
+## O que pode melhorar
+
+- Melhor detalhamento das tarefas
+- Maior frequência de reuniões
+
+## Ações para Sprint 2
+
+- Iniciar desenvolvimento da API
+- Estruturar modelo de IA
+- Criar dashboards
+
+### Sprint 2
+
+## O que funcionou bem
+
+- Desenvolvimento das funcionalidades principais
+- Integração inicial entre IA e backend
+- Testes automatizados
+
+## O que pode melhorar
+
+- Rastreabilidade entre requisitos e tarefas
+- Documentação Scrum
+
+## Ações para Sprint 3
+
+- Finalizar deploy
+- Melhorar segurança
+- Formalizar artefatos Scrum
+
+---
+
 # BURNDOWN SP1
  <div align = center>
  <img src="./assets/burndown-sp1.png" width="700">
@@ -198,7 +321,47 @@ Ferramentas e DevOps
  <img src="">
  </div>
 
------------------------------------------------------------------------------------
+---
+
+# COMO EXECUTAR
+
+## Backend
+
+cd backend
+
+npm install
+
+npm run dev
+
+---
+
+## Frontend
+
+cd frontend
+
+npm install
+
+npm run dev
+
+---
+
+## Mobile
+
+cd mobile
+
+flutter pub get
+
+flutter run
+
+---
+
+## IA
+
+pip install -r requirements.txt
+
+python app.py
+
+---
 
 # 🔗 LINKS
 
@@ -212,6 +375,8 @@ Ferramentas e DevOps
 
 ### Prototipo da IA
 [Clique Aqui](https://colab.research.google.com/drive/1vNiqZ1nualDeYq6lT-kyqGMy6WJxspPS?usp=sharing)
+
+---
 
 # :computer: EQUIPE
 
