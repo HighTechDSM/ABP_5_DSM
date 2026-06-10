@@ -1,5 +1,6 @@
 // lib/main.dart
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';
 import 'theme/app_palette.dart';
 import 'screens/login_screen.dart';
@@ -19,7 +20,13 @@ import 'providers/perfis_provider.dart';
 // Remover o hide e usar um alias para o provider se necessário
 // Ou renomear a classe na jogadores_screen.dart
 
-void main() => runApp(const SoccerInspectorApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await dotenv.load(fileName: ".env");
+
+  runApp(const SoccerInspectorApp());
+}
 
 class SoccerInspectorApp extends StatelessWidget {
   const SoccerInspectorApp({super.key});
