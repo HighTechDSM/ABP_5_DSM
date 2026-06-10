@@ -33,7 +33,7 @@
     },
     {
       "name": "code_assets",
-      "rootUri": "file:///C:/Users/andre/AppData/Local/Pub/Cache/hosted/pub.dev/code_assets-1.1.0",
+      "rootUri": "file:///C:/Users/andre/AppData/Local/Pub/Cache/hosted/pub.dev/code_assets-1.2.1",
       "packageUri": "lib/",
       "languageVersion": "3.10"
     },
@@ -72,6 +72,12 @@
       "rootUri": "file:///C:/Users/andre/flutter/packages/flutter",
       "packageUri": "lib/",
       "languageVersion": "3.10"
+    },
+    {
+      "name": "flutter_dotenv",
+      "rootUri": "file:///C:/Users/andre/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_dotenv-5.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "flutter_lints",
@@ -129,7 +135,7 @@
     },
     {
       "name": "hooks",
-      "rootUri": "file:///C:/Users/andre/AppData/Local/Pub/Cache/hosted/pub.dev/hooks-2.0.0",
+      "rootUri": "file:///C:/Users/andre/AppData/Local/Pub/Cache/hosted/pub.dev/hooks-2.0.2",
       "packageUri": "lib/",
       "languageVersion": "3.10"
     },
