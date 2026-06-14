@@ -1,14 +1,12 @@
 // lib/services/api_service.dart
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:soccer_stats_hub/services/config.dart';
 
 class ApiService {
-  static String get baseUrl {
-  return dotenv.env['API_URL'] ?? 'http://localhost:3000/api';
-}
+  static String get baseUrl => Config.apiUrl;
 
   static final FlutterSecureStorage _storage = const FlutterSecureStorage();
 
