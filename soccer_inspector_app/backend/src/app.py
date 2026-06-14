@@ -12,28 +12,31 @@ from pydantic import BaseModel
 import pandas as pd
 import joblib
 
-# ===========================================
-# Carregamento dos modelos
-# ===========================================
+# ==========================================
+# CARREGAMENTO DOS MODELOS
+# ==========================================
 
-mlp = joblib.load("models/mlp_model.pkl")
-kmeans = joblib.load("models/kmeans_model.pkl")
-isolation_models = joblib.load("models/isolation_models.pkl")
-scaler = joblib.load("models/scaler.pkl")
-label_encoder = joblib.load("models/label_encoder.pkl")
+package = joblib.load("models/model_package.pkl")
 
-# ===========================================
-# API
-# ===========================================
+mlp = package["mlp"]
+kmeans = package["kmeans"]
+isolation_models = package["isolation_models"]
+scaler = package["scaler"]
+label_encoder = package["label_encoder"]
+model_features = package["features"]
+
+# ==========================================
+# FASTAPI
+# ==========================================
 
 app = FastAPI(
     title="Soccer Inspector AI",
-    version="1.0"
+    version="2.0"
 )
 
-# ===========================================
-# Dados recebidos do aplicativo
-# ===========================================
+# ==========================================
+# INPUT
+# ==========================================
 
 class Jogador(BaseModel):
 
@@ -61,9 +64,9 @@ class Jogador(BaseModel):
     workload_intensity: float
 
 
-# ===========================================
-# Página inicial
-# ===========================================
+# ==========================================
+# HOME
+# ==========================================
 
 @app.get("/")
 def home():
@@ -73,18 +76,18 @@ def home():
     }
 
 
-# ===========================================
-# Previsão
-# ===========================================
+# ==========================================
+# PREVISÃO
+# ==========================================
 
 @app.post("/prever")
 def prever(jogador: Jogador):
 
     try:
 
-        # -------------------------
-        # Entrada
-        # -------------------------
+        # ==========================
+        # FEATURES FÍSICAS
+        # ==========================
 
         entrada = pd.DataFrame([{
 
@@ -111,17 +114,22 @@ def prever(jogador: Jogador):
 
         }])
 
-        # -------------------------
-        # Normalização
-        # -------------------------
+        # ==========================
+        # SCALER (15 FEATURES)
+        # ==========================
 
         entrada_escalada = scaler.transform(
             entrada
         )
 
-        # -------------------------
-        # Cluster
-        # -------------------------
+        entrada_scaled_df = pd.DataFrame(
+            entrada_escalada,
+            columns=entrada.columns
+        )
+
+        # ==========================
+        # KMEANS (15 FEATURES)
+        # ==========================
 
         cluster = int(
             kmeans.predict(
@@ -129,11 +137,23 @@ def prever(jogador: Jogador):
             )[0]
         )
 
-        # -------------------------
-        # Isolation Forest
-        # -------------------------
+        entrada_scaled_df["Cluster_0"] = (
+            1 if cluster == 0 else 0
+        )
 
-        anomaly = 1
+        entrada_scaled_df["Cluster_1"] = (
+            1 if cluster == 1 else 0
+        )
+
+        entrada_scaled_df["Cluster_2"] = (
+            1 if cluster == 2 else 0
+        )
+
+        # ==========================
+        # ISOLATION FOREST
+        # ==========================
+
+        anomaly = 0
 
         if jogador.athlete_id in isolation_models:
 
@@ -141,99 +161,59 @@ def prever(jogador: Jogador):
                 jogador.athlete_id
             ]
 
-            anomaly = int(
+            anomaly_raw = int(
                 modelo_iso.predict(
                     entrada_escalada
                 )[0]
             )
 
-        # -------------------------
-        # Preparação para o MLP
-        # -------------------------
+            anomaly = (
+                1 if anomaly_raw == -1 else 0
+            )
 
-        entrada_final = pd.DataFrame(
-            entrada_escalada,
-            columns=entrada.columns
-        )
+        entrada_scaled_df["Anomaly_Flag"] = anomaly
 
-        # One Hot Encoding do Cluster
+        # ==========================
+        # GARANTIA DAS FEATURES
+        # ==========================
 
-        entrada_final["Cluster_0"] = (
-            1 if cluster == 0 else 0
-        )
+        for col in model_features:
 
-        entrada_final["Cluster_1"] = (
-            1 if cluster == 1 else 0
-        )
+            if col not in entrada_scaled_df.columns:
 
-        entrada_final["Cluster_2"] = (
-            1 if cluster == 2 else 0
-        )
+                entrada_scaled_df[col] = 0
 
-        # Isolation Forest
-
-        entrada_final["Anomaly"] = anomaly
-
-        # Ordem das colunas do treinamento
-
-        entrada_final = entrada_final[
-
-            [
-
-                "Distance (m)",
-                "Metres per Minute (m)",
-                "Duration (mins)",
-
-                "High Intensity Running (m)",
-                "No. of High Intensity Events",
-
-                "Sprint Distance (m)",
-                "No. of Sprints",
-
-                "Raw Top Speed (kph)",
-                "Top Speed (kph)",
-                "Avg Speed (kph)",
-
-                "Accelerations",
-                "Decelerations",
-
-                "Workload",
-                "Workload Volume",
-                "Workload Intensity",
-
-                "Cluster_0",
-                "Cluster_1",
-                "Cluster_2",
-
-                "Anomaly"
-
-            ]
-
+        entrada_final = entrada_scaled_df[
+            model_features
         ]
 
-        # -------------------------
-        # Previsão
-        # -------------------------
+        # ==========================
+        # MLP (19 FEATURES)
+        # ==========================
 
-        resultado = mlp.predict(
+        pred = mlp.predict(
             entrada_final
         )
 
-        resultado = label_encoder.inverse_transform(
-            resultado
+        pred_label = (
+            label_encoder
+            .inverse_transform(pred)
         )
 
-        # -------------------------
-        # Retorno
-        # -------------------------
+        # ==========================
+        # RETORNO
+        # ==========================
 
         return {
 
             "athlete_id": jogador.athlete_id,
+
             "cluster": cluster,
+
             "anomaly": anomaly,
+
             "prediction": str(
-                resultado[0]
+                pred_label[0]
             )
 
         }
