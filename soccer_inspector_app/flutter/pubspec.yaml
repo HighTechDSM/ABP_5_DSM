@@ -1,0 +1,31 @@
+name: soccer_stats_hub
+description: "Um aplicativo Flutter para análise de estatísticas de futebol."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  provider: ^6.0.5
+  http: ^1.1.0
+  flutter_secure_storage: ^9.2.4
+
+  fl_chart: ^0.68.0   
+  flutter_radar_chart: ^0.2.0
+
+  pdf: ^3.11.0
+  printing: ^5.13.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
