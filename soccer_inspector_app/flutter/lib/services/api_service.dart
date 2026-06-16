@@ -3,15 +3,10 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:soccer_stats_hub/services/config.dart';
 
 class ApiService {
-  static String get baseUrl {
-    if (kIsWeb) {
-      return 'http://localhost:3000/api';
-    } else {
-      return 'http://10.0.2.2:3000/api';
-    }
-  }
+  static String get baseUrl => Config.apiUrl;
 
   static final FlutterSecureStorage _storage = const FlutterSecureStorage();
 
