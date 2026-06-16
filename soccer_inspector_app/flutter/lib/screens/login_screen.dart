@@ -59,7 +59,7 @@ class LoginScreen extends StatelessWidget {
                                 padding: const EdgeInsets.all(12),
                                 margin: const EdgeInsets.only(bottom: 16),
                                 decoration: BoxDecoration(
-                                  color: AppPalette.danger.withOpacity(0.18),
+                                  color: AppPalette.danger.withValues(alpha: 0.18),
                                   borderRadius: AppPalette.radiusMd,
                                 ),
                                 child: Text(

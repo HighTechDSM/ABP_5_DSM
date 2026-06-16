@@ -5,6 +5,7 @@ import authRoutes from "./routes/authRoutes";
 import jogadorRoutes from "./routes/jogadorRoutes";
 import dashboardRoutes from "./routes/dashboardRoutes";
 import perfilRoutes from "./routes/perfilRoutes";
+import dadosExtraidosRoutes from "./routes/dadosExtraidosRoutes";
 import { errorHandler } from "./middleware/errorHandler";
 import { initDatabase } from "./scripts/initDb";
 
@@ -54,6 +55,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/jogadores", jogadorRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/perfis", perfilRoutes);
+app.use("/api/dados-extraidos", dadosExtraidosRoutes);
 
 // 404
 app.use((req, res) => {
@@ -68,19 +70,19 @@ app.use(errorHandler);
 // Inicialização da aplicação
 async function startServer() {
   try {
-    console.log("🔄 Inicializando banco de dados...");
+    console.log(" Inicializando banco de dados...");
 
     await initDatabase();
 
-    console.log("✅ Banco de dados inicializado");
+    console.log(" Banco de dados inicializado");
 
     app.listen(PORT, () => {
-      console.log(`🚀 Server running on http://localhost:${PORT}`);
-      console.log(`❤️ Health: http://localhost:${PORT}/health`);
-      console.log(`🔐 Auth: http://localhost:${PORT}/api/auth`);
-      console.log(`📊 Jogadores: http://localhost:${PORT}/api/jogadores`);
-      console.log(`📈 Dashboard: http://localhost:${PORT}/api/dashboard/stats`);
-      console.log(`👤 Perfis: http://localhost:${PORT}/api/perfis/posicoes`);
+      console.log(` Server running on http://localhost:${PORT}`);
+      console.log(` Health: http://localhost:${PORT}/health`);
+      console.log(` Auth: http://localhost:${PORT}/api/auth`);
+      console.log(` Jogadores: http://localhost:${PORT}/api/jogadores`);
+      console.log(` Dashboard: http://localhost:${PORT}/api/dashboard/stats`);
+      console.log(` Perfis: http://localhost:${PORT}/api/perfis/posicoes`);
     });
   } catch (error) {
     console.error("❌ Erro ao iniciar aplicação:", error);

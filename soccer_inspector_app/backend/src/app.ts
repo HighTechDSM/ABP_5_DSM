@@ -6,6 +6,7 @@ import authRoutes from './routes/authRoutes';
 import jogadorRoutes from './routes/jogadorRoutes';
 import dashboardRoutes from './routes/dashboardRoutes';
 import perfilRoutes from './routes/perfilRoutes';
+import dadosExtraidosRoutes from './routes/dadosExtraidosRoutes';
 import { errorHandler } from './middleware/errorHandler';
 
 dotenv.config();
@@ -32,17 +33,6 @@ app.use((req, res, next) => {
   next();
 });
 
-// Middleware para garantir headers CORS em todas as respostas
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  if (req.method === 'OPTIONS') {
-    return res.sendStatus(200);
-  }
-  next();
-});
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -51,6 +41,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/jogadores', jogadorRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/perfis', perfilRoutes);
+app.use('/api/dados-extraidos', dadosExtraidosRoutes);
 
 // Health check
 app.get('/health', (req, res) => {

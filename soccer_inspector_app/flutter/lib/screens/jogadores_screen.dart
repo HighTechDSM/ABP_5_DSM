@@ -26,6 +26,8 @@ class _JogadoresListScreenState extends State<JogadoresListScreen> {
     });
   }
 
+  
+
   Future<void> _loadData() async {
     setState(() => _isLoading = true);
     await context.read<JogadoresProvider>().loadJogadores();
@@ -58,6 +60,38 @@ class _JogadoresListScreenState extends State<JogadoresListScreen> {
     }
   }
 
+  List<dynamic> _getJogadoresSimilares(
+  List<dynamic> jogadores,
+  dynamic alvo,
+) {
+  if (alvo == null) return [];
+
+  final posicaoAlvo = alvo['posicao'];
+  final velAlvo = (alvo['velocidadeMax'] ?? 0).toDouble();
+  final distAlvo = (alvo['distancia'] ?? 0).toDouble();
+
+  double distanciaScore(dynamic j) {
+    final vel = (j['velocidadeMax'] ?? 0).toDouble();
+    final dist = (j['distancia'] ?? 0).toDouble();
+
+    final diffVel = (vel - velAlvo).abs();
+    final diffDist = (dist - distAlvo).abs();
+
+    return diffVel + (diffDist / 100); // peso leve na distância
+  }
+
+  final filtrados = jogadores
+      .where((j) =>
+          j['posicao'] == posicaoAlvo &&
+          j['nome'] != alvo['nome'])
+      .toList();
+
+  filtrados.sort((a, b) =>
+      distanciaScore(a).compareTo(distanciaScore(b)));
+
+  return filtrados.take(5).toList();
+}
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -82,6 +116,25 @@ class _JogadoresListScreenState extends State<JogadoresListScreen> {
 
                     final visiveis = provider.filterJogadores(_query, _filtro);
 
+                    dynamic jogadorSelecionado;
+
+if (_query.isNotEmpty) {
+  try {
+    jogadorSelecionado = provider.jogadores.firstWhere(
+      (j) =>
+          j['nome'].toString().toLowerCase() ==
+          _query.toLowerCase(),
+    );
+  } catch (_) {
+    jogadorSelecionado = null;
+  }
+}
+
+final similares = _getJogadoresSimilares(
+  provider.jogadores,
+  jogadorSelecionado,
+);
+
                     return ListView(
                       padding: EdgeInsets.fromLTRB(
                           horizontalPadding, 16, horizontalPadding, 24),
@@ -91,6 +144,30 @@ class _JogadoresListScreenState extends State<JogadoresListScreen> {
                                 fontSize: 22, fontWeight: FontWeight.w800)),
                         const Text('Selecione um atleta para análise.',
                             style: TextStyle(color: AppPalette.mutedFg)),
+
+                            if (jogadorSelecionado != null) ...[
+  const SizedBox(height: 10),
+  Text(
+    'Jogadores semelhantes a ${jogadorSelecionado['nome']}',
+    style: const TextStyle(
+      fontSize: 14,
+      fontWeight: FontWeight.w700,
+    ),
+  ),
+  const SizedBox(height: 10),
+
+  ...similares.map((j) => Padding(
+        padding: const EdgeInsets.only(bottom: 8),
+        child: GlassCard(
+          child: ListTile(
+            title: Text(j['nome']),
+            subtitle: Text(
+              '${j['posicao']} · ${j['velocidadeMax']} km/h · ${j['distancia']} m',
+            ),
+          ),
+        ),
+      )),
+],
                         const SizedBox(height: 16),
                         TextField(
                           onChanged: (v) => setState(() => _query = v),
@@ -143,7 +220,7 @@ class _JogadoresListScreenState extends State<JogadoresListScreen> {
                                   context, 
                                   '/jogador', 
                                   arguments: {
-                                    'id': j['id'],
+                                    'id': j['id'] ?? j['athleteId'] ?? j['Athlete ID'],
                                     'nome': j['nome']
                                   }
                                 ),

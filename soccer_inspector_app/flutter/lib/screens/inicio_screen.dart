@@ -15,11 +15,11 @@ class LandingScreen extends StatelessWidget {
           body: Container(
             width: double.infinity,
             height: double.infinity,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
-                colors: const [
+                colors: [
                   Color(0xFF032414),
                   Color(0xFF010806),
                   Colors.black,
@@ -47,7 +47,7 @@ class LandingScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(28),
                             boxShadow: [
                               BoxShadow(
-                                color: AppPalette.primary.withOpacity(0.35),
+                                color: AppPalette.primary.withValues(alpha: 0.35),
                                 blurRadius: 40,
                                 spreadRadius: 1,
                                 offset: const Offset(0, 10),
@@ -89,12 +89,12 @@ class LandingScreen extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 14),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 12),
+                        const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 12),
                           child: Text(
                             'Análise inteligente de desempenho físico de atletas com IA.',
                             textAlign: TextAlign.center,
-                            style: const TextStyle(
+                            style: TextStyle(
                               color: Color(0xFFA6B0AA),
                               fontSize: 15,
                               fontWeight: FontWeight.w400,
@@ -137,7 +137,7 @@ class LandingScreen extends StatelessWidget {
                               borderRadius: BorderRadius.circular(24),
                               boxShadow: [
                                 BoxShadow(
-                                  color: AppPalette.primary.withOpacity(0.35),
+                                  color: AppPalette.primary.withValues(alpha: 0.35),
                                   blurRadius: 28,
                                   spreadRadius: 0.5,
                                   offset: const Offset(0, 10),
@@ -224,21 +224,21 @@ class LandingScreen extends StatelessWidget {
         vertical: 18,
       ),
       decoration: BoxDecoration(
-        gradient: LinearGradient(
+        gradient: const LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: const [
+          colors: [
             Color(0xFF0A1712),
             Color(0xFF07120E),
           ],
         ),
         borderRadius: BorderRadius.circular(22),
         border: Border.all(
-          color: Colors.white.withOpacity(0.06),
+          color: Colors.white.withValues(alpha: 0.06),
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.18),
+            color: Colors.black.withValues(alpha: 0.18),
             blurRadius: 18,
             offset: const Offset(0, 8),
           ),

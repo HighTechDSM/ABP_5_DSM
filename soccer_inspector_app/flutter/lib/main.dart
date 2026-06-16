@@ -95,7 +95,7 @@ class _RootShellState extends State<RootShell> {
       bottomNavigationBar: Container(
         margin: const EdgeInsets.fromLTRB(12, 0, 12, 12),
         decoration: BoxDecoration(
-          color: AppPalette.surface1.withOpacity(0.92),
+          color: AppPalette.surface1.withValues(alpha: 0.92),
           borderRadius: AppPalette.radiusLg,
           border: Border.all(color: AppPalette.border),
           boxShadow: AppPalette.card,

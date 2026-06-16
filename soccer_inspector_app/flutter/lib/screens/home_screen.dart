@@ -25,11 +25,20 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<void> _loadData() async {
-    setState(() => _isLoading = true);
-    await context.read<JogadoresProvider>().loadJogadores();
-    await context.read<DashboardProvider>().loadDashboardStats();
-    setState(() => _isLoading = false);
-  }
+  if (!mounted) return;
+
+  setState(() => _isLoading = true);
+
+  final dashboardProvider = context.read<DashboardProvider>();
+  final jogadoresProvider = context.read<JogadoresProvider>();
+
+  await dashboardProvider.loadDashboardStats();
+  await jogadoresProvider.loadJogadores();
+
+  if (!mounted) return;
+
+  setState(() => _isLoading = false);
+}
 
   String _getRendimentoLabel(String rendimento) {
     switch (rendimento) {
@@ -158,7 +167,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         if (alertas.isNotEmpty) ...[
                           const SizedBox(height: 20),
                           GlassCard(
-                            borderColor: AppPalette.danger.withOpacity(0.45),
+                            borderColor: AppPalette.danger.withValues(alpha: 0.45),
                             child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -168,7 +177,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     alignment: Alignment.center,
                                     decoration: BoxDecoration(
                                         color: AppPalette.danger
-                                            .withOpacity(0.18),
+                                            .withValues(alpha: 0.18),
                                         borderRadius: AppPalette.radiusMd),
                                     child: const Icon(
                                         Icons.warning_amber_rounded,
@@ -188,13 +197,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                                       FontWeight.w700)),
                                           const SizedBox(height: 2),
                                           Text(
-                                              alertas
+                                              '${alertas
                                                   .map((a) =>
                                                       (a['nome'] ?? '')
                                                           .split(' ')
                                                           .first)
-                                                  .join(', ') +
-                                                  ' apresentam queda.',
+                                                  .join(', ')} apresentam queda.',
                                               style: const TextStyle(
                                                   color: AppPalette.mutedFg,
                                                   fontSize: 12)),
@@ -212,7 +220,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               context, 
                               '/jogador', 
                               arguments: {
-                                'id': destaque['id'],
+                                'id': destaque['id'] ?? destaque['athleteId'] ?? destaque['Athlete ID'],
                                 'nome': destaque['nome']
                               }
                             ),
@@ -270,7 +278,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   context, 
                                   '/jogador', 
                                   arguments: {
-                                    'id': j['id'],
+                                    'id': j['id'] ?? j['athleteId'] ?? j['Athlete ID'],
                                     'nome': j['nome']
                                   }
                                 ),

@@ -11,22 +11,38 @@ export const initDatabase = async () => {
   try {
     const projectRoot = process.cwd();
 
-    const sqlPath = path.join(projectRoot, 'sql', 'init.sql');
+    const sqlPath = path.join(
+      projectRoot,
+      'sql',
+      'init.sql'
+    );
 
-    console.log('📄 Procurando arquivo SQL em:', sqlPath);
+    console.log(' Procurando arquivo SQL em:', sqlPath);
 
     if (!fs.existsSync(sqlPath)) {
-      throw new Error(`Arquivo não encontrado: ${sqlPath}`);
+      throw new Error(
+        `Arquivo não encontrado: ${sqlPath}`
+      );
     }
 
-    const sql = fs.readFileSync(sqlPath, 'utf8');
+    const sql = fs.readFileSync(
+      sqlPath,
+      'utf8'
+    );
 
-    console.log('🚀 Executando script SQL...');
+    console.log(' Executando script SQL...');
 
     await query(sql);
 
-    console.log('✅ Banco de dados inicializado com sucesso!');
+    console.log(
+      '✅ Banco de dados inicializado com sucesso!'
+    );
   } catch (error: any) {
-    console.error('❌ Erro ao inicializar banco:', error.message);
+    console.error(
+      '❌ Erro ao inicializar banco:',
+      error.message
+    );
+
+    throw error;
   }
 };
