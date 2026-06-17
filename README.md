@@ -58,6 +58,55 @@ Ferramentas e DevOps
 
 ---
 
+# COMO EXECUTAR PROJETO
+
+## Rodar o Backend
+
+No terminal, acesse a pasta do backend e execute:
+
+```bash
+cd backend
+npm install
+npm run dev
+```
+
+---
+
+## Rodar o Frontend
+
+No terminal, acesse a pasta do frontend e execute:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+---
+
+## Rodar o Mobile
+
+Se estiver utilizando Flutter, execute:
+
+```bash
+cd mobile
+flutter pub get
+flutter run
+```
+
+---
+
+## Rodar a IA
+
+Instale as dependências e execute a aplicação:
+
+```bash
+pip install -r requirements.txt
+python app.py
+```
+
+---
+
 # PRODUCT BACKLOG
 
 |ID   | Requisitos | Prioridade |
@@ -123,11 +172,31 @@ Uma atividade será considerada concluída quando:
 |--------|----------------|-----------------|---------|
 |  1     | :calendar: ➡ (13/04/2026) | 📆 ➡ (30/04/2026) |  Encerrado |
 |  2     | :calendar: ➡ (04/05/2026) | 📆 ➡ (21/05/2026) |  Encerrado |
-|  3     | :calendar: ➡ (25/05/2026) | 📆 ➡ (16/06/2026) |  Em Andamento |
+|  3     | :calendar: ➡ (25/05/2026) | 📆 ➡ (16/06/2026) |  Encerrado |
 
 ---
 
-# DETALHAMENTO DAS SPRINTS
+# SPRINT BACKLOGS
+|Issue | Atividade | Responsável | Estimativa | Requisito |
+|------|-----------|-------------|------------|-----------|
+| #35	 | Autenticação JWT |	Luana |	8 pts |	RNF02 |
+| #36	 | Validação de Entrada |	Luana |	5 pts |	RNF02 |
+| #34	 | Criptografia de Dados | Luana | 8 pts | RNF02 |
+| #33	 | HTTPS | Luana | 3 pts |RNF02 |
+| #16	 | CRUD Jogadores |	Luana | 8 pts | RF01 |
+| #17	 | Importação de Dados | Bruno	| 5 pts	| RF02 |
+| #18	 | Consulta de Desempenho |	Bruno	| 8 pts |	RF05 |
+| #22	 | Integração API IA | Bruno	| 8 pts |	RF03 |
+| #39	 | Testes de Usabilidade | Rodirgo & Edlaine | 5 pts | RNF01 |
+| #38	 | Testes Integrados | André Ventura | 8 pts | RNF04 |
+| #41	 | Deploy Backend |	André Michel | 5 pts | RP02 |
+| #42	 | Deploy Banco |	André Michel | 5 pts | RP02 |
+| #43	 | Deploy IA | André Michel | 5 pts	| RP02 |
+| #44	 | Build APK Flutter |	André Michel | 3 pts | RF08 |
+
+---
+
+# RESUMO DAS SPRINTS
 
 ## Sprint 1 — Planejamento e Estruturação do Projeto
 
@@ -203,7 +272,7 @@ Uma atividade será considerada concluída quando:
 
 ## 🚀 Sprint 3 — Integração, Segurança e Deploy
 
-### 🔁 O que será desenvolvido
+## ✅ O que foi desenvolvido
 
 - Implementação da autenticação JWT
 - Desenvolvimento completo do CRUD de jogadores
@@ -226,7 +295,7 @@ Uma atividade será considerada concluída quando:
 - Testes completos dos endpoints
 - Melhorias de performance da aplicação
 
-### ⚠️ Desafios esperados
+## ⚠️ Desafios encontrados
 
 - Garantir segurança na comunicação entre serviços
 - Estabilizar a integração entre IA, backend e mobile
@@ -236,31 +305,11 @@ Uma atividade será considerada concluída quando:
 - Ajustar compatibilidade entre ambientes
 - Garantir confiabilidade nos testes integrados
 
-### 🛠️ Tecnologias utilizadas
+## 🛠️ Tecnologias utilizadas
 
 <p>
   <img src="https://skillicons.dev/icons?i=flutter,dart,react,typescript,nodejs,python,postgresql,docker,git,github,nginx" /> 
 </p>
-
----
-
-# SPRINT BACKLOGS
-|Issue | Atividade | Responsável | Estimativa | Requisito |
-|------|-----------|-------------|------------|-----------|
-| #35	 | Autenticação JWT |	Eduardo |	8 pts |	RNF02 |
-| #36	 | Validação de Entrada |	Eduardo |	5 pts |	RNF02 |
-| #34	 | Criptografia de Dados | Eduardo | 8 pts | RNF02 |
-| #33	 | HTTPS | Eduardo | 3 pts |RNF02 |
-| #16	 | CRUD Jogadores |	Equipe Backend | 8 pts | RF01 |
-| #17	 | Importação de Dados | Equipe Backend	| 5 pts	| RF02 |
-| #18	 | Consulta de Desempenho |	Equipe IA	| 8 pts |	RF05 |
-| #22	 | Integração API IA | Equipe Backend	| 8 pts |	RF03 |
-| #39	 | Testes de Usabilidade | Equipe Frontend | 5 pts | RNF01 |
-| #38	 | Testes Integrados | Equipe QA | 8 pts | RNF04 |
-| #41	 | Deploy Backend |	DevOps | 5 pts | RP02 |
-| #42	 | Deploy Banco |	DevOps | 5 pts | RP02 |
-| #43	 | Deploy IA | DevOps | 5 pts	| RP02 |
-| #44	 | Build APK Flutter |	Mobile | 3 pts | RF08 |
 
 ---
 
@@ -324,55 +373,6 @@ Uma atividade será considerada concluída quando:
  <div align = center>
  <img src="">
  </div>
-
----
-
-# COMO EXECUTAR
-
-## Rodar o Backend
-
-No terminal, acesse a pasta do backend e execute:
-
-```bash
-cd backend
-npm install
-npm run dev
-```
-
----
-
-## Rodar o Frontend
-
-No terminal, acesse a pasta do frontend e execute:
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
----
-
-## Rodar o Mobile
-
-Se estiver utilizando Flutter, execute:
-
-```bash
-cd mobile
-flutter pub get
-flutter run
-```
-
----
-
-## Rodar a IA
-
-Instale as dependências e execute a aplicação:
-
-```bash
-pip install -r requirements.txt
-python app.py
-```
 
 ---
 
