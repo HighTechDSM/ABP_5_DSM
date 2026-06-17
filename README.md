@@ -241,9 +241,10 @@ Gerar APK:
 ```bash
 flutter build apk
 ```
+
 ---
 
-#ENDPOINTS DA API
+# ENDPOINTS DA API
 
 ## Autenticação
 
