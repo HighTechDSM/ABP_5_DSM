@@ -16,7 +16,12 @@ from fastapi.middleware.cors import CORSMiddleware
 # CARREGAMENTO DOS MODELOS
 # ==========================================
 
-package = joblib.load("models/model_package.pkl")
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent
+MODEL_PATH = BASE_DIR / "models" / "model_package.pkl"
+
+package = joblib.load(MODEL_PATH)
 
 mlp = package["mlp"]
 kmeans = package["kmeans"]
