@@ -1,10 +1,6 @@
 # SOCCER INSPECTOR
 
-<p align="center">
-  <img src="./assets/logo.png" width="200"/>
-</p>
-
-<p align="center">
+<p align="left">
   Sistema inteligente para análise de desempenho de atletas de futebol utilizando Inteligência Artificial, dashboards analíticos e monitoramento de indicadores físicos.
 </p>
 
