@@ -1,4 +1,4 @@
-name: soccer_stats_hub
+name: soccer_inspector
 description: "Um aplicativo Flutter para análise de estatísticas de futebol."
 publish_to: 'none'
 
@@ -10,10 +10,17 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
   cupertino_icons: ^1.0.2
   provider: ^6.0.5
   http: ^1.1.0
-  flutter_secure_storage: ^9.0.0
+  flutter_secure_storage: ^9.2.4
+
+  fl_chart: ^0.68.0   
+  flutter_radar_chart: ^0.2.0
+
+  pdf: ^3.11.3
+  printing: ^5.14.2
 
 dev_dependencies:
   flutter_test:

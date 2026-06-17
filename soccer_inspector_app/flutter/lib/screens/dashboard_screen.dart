@@ -5,6 +5,8 @@ import '../theme/app_palette.dart';
 import '../widgets/common.dart';
 import '../providers/dashboard_provider.dart';
 import '../providers/jogadores_provider.dart';
+import '../services/api_service.dart';
+import 'package:fl_chart/fl_chart.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -16,20 +18,46 @@ class DashboardScreen extends StatefulWidget {
 class _DashboardScreenState extends State<DashboardScreen> {
   bool _isLoading = true;
 
+  List<dynamic> evolucao = [];
+
   @override
   void initState() {
     super.initState();
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _loadData();
     });
+
+    carregarEvolucao();
+  }
+
+  Future<void> carregarEvolucao() async {
+    try {
+      evolucao = await ApiService.getEvolucaoMediaElenco();
+
+      if (mounted) {
+        setState(() {});
+      }
+    } catch (e) {
+      debugPrint('Erro ao carregar evolução: $e');
+    }
   }
 
   Future<void> _loadData() async {
-    setState(() => _isLoading = true);
-    await context.read<DashboardProvider>().loadDashboardStats();
-    await context.read<JogadoresProvider>().loadJogadores();
-    setState(() => _isLoading = false);
-  }
+  if (!mounted) return;
+
+  setState(() => _isLoading = true);
+
+  final jogadoresProvider = context.read<JogadoresProvider>();
+  final dashboardProvider = context.read<DashboardProvider>();
+
+  await jogadoresProvider.loadJogadores();
+  await dashboardProvider.loadDashboardStats();
+
+  if (!mounted) return;
+
+  setState(() => _isLoading = false);
+}
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +77,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 onRefresh: _loadData,
                 child: Consumer2<DashboardProvider, JogadoresProvider>(
                   builder: (context, dashboard, jogadores, child) {
-                    if (_isLoading || (dashboard.isLoading && dashboard.stats == null)) {
+                   if (_isLoading || dashboard.isLoading) {
                       return const Center(child: CircularProgressIndicator());
                     }
 
@@ -60,6 +88,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     final desempenhoUltimoJogo = dashboard.desempenhoUltimoJogo;
                     final crossAxisCount = isMobile ? 2 : (isTablet ? 3 : 4);
                     final chartHeight = isMobile ? 220.0 : 280.0;
+
+                    if (jogadores.jogadores.isNotEmpty) {
+                    debugPrint(jogadores.jogadores.first.toString());
+                    }
 
                     return ListView(
                       padding: EdgeInsets.fromLTRB(
@@ -119,7 +151,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                                   colors: [
                                                     AppPalette.success,
                                                     AppPalette.success
-                                                        .withOpacity(0.8),
+                                                        .withValues(alpha: 0.8),
                                                   ],
                                                 ),
                                               ),
@@ -135,7 +167,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                                   colors: [
                                                     AppPalette.warning,
                                                     AppPalette.warning
-                                                        .withOpacity(0.8),
+                                                        .withValues(alpha: 0.8),
                                                   ],
                                                 ),
                                               ),
@@ -151,7 +183,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                                   colors: [
                                                     AppPalette.danger,
                                                     AppPalette.danger
-                                                        .withOpacity(0.8),
+                                                        .withValues(alpha: 0.8),
                                                   ],
                                                 ),
                                               ),
@@ -177,7 +209,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               ]),
                         ),
                         const SizedBox(height: 24),
-                        const _Section('RENDIMENTO POR ATLETA (ÚLTIMO JOGO)'),
+
+                        const _Section('EVOLUÇÃO MÉDIA DO ELENCO'),
                         GlassCard(
                           child: desempenhoUltimoJogo.isEmpty
                               ? const Padding(
@@ -190,23 +223,23 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                   children: [
                                     Padding(
                                       padding: const EdgeInsets.only(
-                                          left: 12, right: 12, top: 12),
+                                          left: 12, right: 12, top: 8),
                                       child: Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           const Text(
-                                            'Desempenho',
+                                            '',
                                             style: TextStyle(
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.w700),
                                           ),
                                           Container(
                                             padding: const EdgeInsets.symmetric(
-                                                horizontal: 8, vertical: 4),
+                                                horizontal: 8, vertical: 0),
                                             decoration: BoxDecoration(
                                               color: AppPalette.primary
-                                                  .withOpacity(0.1),
+                                                  .withValues(alpha: 0.1),
                                               borderRadius:
                                                   BorderRadius.circular(12),
                                             ),
@@ -231,6 +264,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         ],
                                       ),
                                     ),
+
+                                    _evolucaoMediaElenco(jogadores),
+
+                                    const SizedBox(height: 16),
+                                    const _Section('RENDIMENTO POR ATLETA (ÚLTIMO JOGO)'),
+
                                     const Divider(
                                         color: AppPalette.border, height: 16),
                                     SizedBox(
@@ -270,7 +309,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                                               vertical: 2),
                                                       decoration: BoxDecoration(
                                                         color: AppPalette.primary
-                                                            .withOpacity(0.15),
+                                                            .withValues(alpha: 0.15),
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(20),
@@ -333,12 +372,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                                                           .primary,
                                                                       AppPalette
                                                                           .primary
-                                                                          .withOpacity(
-                                                                              0.7),
+                                                                          .withValues(
+                                                                              alpha: 0.7),
                                                                       AppPalette
                                                                           .accent
-                                                                          .withOpacity(
-                                                                              0.5),
+                                                                          .withValues(
+                                                                              alpha: 0.5),
                                                                     ],
                                                                   ),
                                                                   borderRadius:
@@ -349,8 +388,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                                                     BoxShadow(
                                                                       color: AppPalette
                                                                           .primary
-                                                                          .withOpacity(
-                                                                              0.3),
+                                                                          .withValues(
+                                                                              alpha: 0.3),
                                                                       blurRadius:
                                                                           8,
                                                                       spreadRadius:
@@ -420,6 +459,111 @@ class _DashboardScreenState extends State<DashboardScreen> {
     );
   }
 
+
+Widget _evolucaoMediaElenco(JogadoresProvider jogadoresProvider) {
+  final jogadores = jogadoresProvider.jogadores;
+
+  final Map<String, List<double>> mediasPorData = {};
+
+  for (final jogador in jogadores) {
+    final historico = jogador['historico'] ?? [];
+
+    for (final item in historico) {
+      final data = item['data'] ?? '';
+      final valor = (item['valor'] as num?)?.toDouble() ?? 0;
+
+      mediasPorData.putIfAbsent(data, () => []);
+      mediasPorData[data]!.add(valor);
+    }
+  }
+
+  final dados = mediasPorData.entries.map((e) {
+    final media =
+        e.value.reduce((a, b) => a + b) / e.value.length;
+
+    return {
+      'data': e.key,
+      'media': media,
+    };
+  }).toList();
+
+  dados.sort(
+    (a, b) => (a['data'] as String)
+        .compareTo(b['data'] as String),
+  );
+
+  return GlassCard(
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          '',
+          style: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        const SizedBox(height: 20),
+
+        SizedBox(
+          height: 320,
+          child: RadarChart(
+            RadarChartData(
+              radarShape: RadarShape.polygon,
+              tickCount: 4,
+
+              ticksTextStyle: const TextStyle(
+                color: AppPalette.mutedFg,
+                fontSize: 10,
+              ),
+
+              gridBorderData: BorderSide(
+                color: Colors.green.withValues(alpha: .25),
+              ),
+
+              radarBorderData: BorderSide(
+                color: Colors.green.withValues(alpha: .30),
+              ),
+
+              titleTextStyle: const TextStyle(
+                color: AppPalette.mutedFg,
+                fontSize: 11,
+                fontWeight: FontWeight.w500,
+              ),
+
+              getTitle: (index, angle) {
+                return RadarChartTitle(
+                  text: dados[index]['data'].toString(),
+                );
+              },
+
+              dataSets: [
+                RadarDataSet(
+                  fillColor:
+                      Colors.greenAccent.withValues(alpha: .25),
+
+                  borderColor:
+                      Colors.greenAccent,
+
+                  borderWidth: 2,
+                  entryRadius: 3,
+
+                  dataEntries: dados.map((item) {
+                    return RadarEntry(
+                      value:
+                          (item['media'] as num).toDouble(),
+                    );
+                  }).toList(),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
   Widget _kpi(IconData icon, String label, int value, Color c) => GlassCard(
         padding: const EdgeInsets.all(14),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -429,7 +573,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               height: 32,
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                  color: c.withOpacity(0.18),
+                  color: c.withValues(alpha: 0.18),
                   borderRadius: AppPalette.radiusSm),
               child: Icon(icon, size: 16, color: c),
             ),
@@ -446,9 +590,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget _pill(String label, Color c) => Container(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
         decoration: BoxDecoration(
-            color: c.withOpacity(0.15),
+            color: c.withValues(alpha: 0.15),
             borderRadius: BorderRadius.circular(20),
-            border: Border.all(color: c.withOpacity(0.3))),
+            border: Border.all(color: c.withValues(alpha: 0.3))),
         child: Row(mainAxisSize: MainAxisSize.min, children: [
           Container(
               width: 8,

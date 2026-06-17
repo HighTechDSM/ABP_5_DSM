@@ -1,60 +1,307 @@
 # SOCCER INSPECTOR
-Repositório do projeto integrador do 5° semestre do curso de Desenvolvimento de Software Multiplataforma
 
-<img src='' width='200'/>
+<p align="left">
+  Sistema inteligente para análise de desempenho de atletas de futebol utilizando Inteligência Artificial, dashboards analíticos e monitoramento de indicadores físicos.
+</p>
 
-<h1>DESCRIÇÃO:</h1>    
-Soccer Inspector é um software de análise de desempenho físico de atletas que compõem o plantel de um time de futebol, com base no histórico de registro de atividade dos jogadores ao longo de partidas com o objetivo de identificar perfis de jogadores e seus desempenhos.
-</div>
+# SOBRE O PROJETO
 
+O **Soccer Inspector** é uma plataforma desenvolvida para auxiliar analistas de desempenho, preparadores físicos e comissões técnicas na avaliação de atletas de futebol.
+A solução permite importar dados históricos de partidas, analisar indicadores físicos dos jogadores, identificar perfis semelhantes através de Inteligência Artificial, detectar quedas de desempenho e disponibilizar dashboards para acompanhamento dos resultados.
 
+O sistema é composto por:
+
+- Dashboard Web para análise e gerenciamento
+- Aplicativo Mobile para consulta dos dados
+- API Backend responsável pelas regras de negócio
+- Banco de Dados PostgreSQL
+- Módulo de Inteligência Artificial para análise dos atletas
+  
 ![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
 ![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
 ![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
 
+![Status](https://img.shields.io/badge/Status-Concluído-success?style=for-the-badge)
+![Sprint](https://img.shields.io/badge/Sprint-3-blue?style=for-the-badge)
+![FATEC](https://img.shields.io/badge/FATEC-5º_DSM-red?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.0.0-orange?style=for-the-badge)
+
+---
+
 # TECNOLOGIAS UTILIZADAS
 
-Mobile
+### Frontend web
 <p>
-  <img src="https://skillicons.dev/icons?i=flutter,dart" />
+  <img src="https://skillicons.dev/icons?i=react,typescript,vite,tailwind" />
 </p>
 
-Frontend Web
+### Bibliotecas
+- React
+- TypeScript
+- Vite
+- TailwindCSS
+- TanStack Router
+- TanStack Query
+- Recharts
+- Shadcn/UI
+- Radix UI
+
+---
+
+### Backend
 <p>
-  <img src="https://skillicons.dev/icons?i=react,typescript,html,css,javascript" />
+  <img src="https://skillicons.dev/icons?i=nodejs,typescript,express" />
 </p>
 
-Backend & API
-<p>
-  <img src="https://skillicons.dev/icons?i=nodejs,typescript,python" />
-</p>
+### Bibliotecas
+- Express
+- JWT
+- BCrypt
+- PostgreSQL
+- CORS
 
-Banco de Dados
-<p>
-  <img src="https://skillicons.dev/icons?i=postgresql" />
-</p>
+---
 
-Inteligência Artificial
+### Inteligência Artificial
 <p>
   <img src="https://skillicons.dev/icons?i=python,tensorflow" />
 </p>
 
-Ferramentas e DevOps
+### Bibliotecas
+- Python
+- TensorFlow
+- Pandas
+- NumPy
+- Scikit-Learn
+
+---
+
+### Mobile
 <p>
-  <img src="https://skillicons.dev/icons?i=git,github,docker,figma,vscode" />
+  <img src="https://skillicons.dev/icons?i=flutter,dart" />
+</p>
+
+### Bibliotecas
+- Flutter
+- Dart
+- Provider
+- HTTP
+- Flutter Secure Storage
+
+---
+
+### Banco de Dados
+<p>
+  <img src="https://skillicons.dev/icons?i=postgresql" />
 </p>
 
 ---
 
-# ARQUITETURA DO PROJETO
+### Ferramentas
+<p>
+  <img src="https://skillicons.dev/icons?i=git,github,figma,vscode" />
+</p>
 
+---
+
+# ESTRUTURA DO PROJETO
+
+```text
+ABP_5_DSM
+│
+├── init.sql
+│
+├── assets
+│
+└── soccer_inspector_app
+    │
+    ├── backend
+    │   ├── src
+    │   ├── package.json
+    │   └── tsconfig.json
+    │
+    ├── flutter
+    │   ├── lib
+    │   ├── android
+    │   ├── ios
+    │   └── pubspec.yaml
+    │
+    ├── src
+    │
+    ├── package.json
+    └── vite.config.ts
+```
+---
+
+# COMO EXECUTAR PROJETO
+
+## Pré-requisitos
+- Node.js 20+
+- PostgreSQL 15+
+- Flutter SDK 3+
+- Git
+
+---
+
+## Banco de Dados
+
+Crie o banco PostgreSQL e execute o script:
+```sql
+init.sql
+```
+---
+
+## Backend
+
+Acesse a pasta:
+
+```bash
+cd soccer_inspector_app/backend
+```
+Instale as dependências:
+```bash
+npm install
+```
+Execute em desenvolvimento:
+```bash
+npm run dev
+```
+Build de produção:
+```bash
+npm run build
+```
+Executar versão compilada:
+```bash
+npm start
+```
+
+---
+
+## Frontend Web
+
+Acesse a pasta:
+
+```bash
+cd soccer_inspector_app
+```
+Instale as dependências:
+```bash
+npm install
+```
+Execute:
+```bash
+npm run dev
+```
+Build:
+```bash
+npm run build
+```
+Preview:
+```bash
+npm run preview
+```
+
+---
+
+## Aplicativo Mobile
+
+Acesse:
+
+```bash
+cd soccer_inspector_app/flutter
+```
+Instale as dependências:
+```bash
+flutter pub get
+```
+Executar Android:
+```bash
+flutter run
+```
+Executar Web:
+```bash
+flutter run -d chrome
+```
+Gerar APK:
+```bash
+flutter build apk
+```
+
+---
+
+# ENDPOINTS DA API
+
+## Autenticação
+
+Base URL:
+```http
+/api/auth
+```
+
+| Método | Endpoint | Descrição |
+|----------|----------|------------|
+| POST | /register | Cadastro de usuário |
+| POST | /login | Autenticação |
+| GET | /profile | Dados do usuário autenticado |
+
+---
+
+## Jogadores
+
+Base URL:
+```http
+/api/jogadores
+```
+
+| Método | Endpoint |
+|----------|----------|
+| GET | / |
+| GET | /estatisticas |
+| GET | /id/:id |
+| GET | /grupo/:grupo |
+| GET | /rendimento/:rendimento |
+| GET | /perfil/:perfil |
+| GET | /:athlete |
+
+---
+
+## Dashboard
+
+Base URL:
+```http
+/api/dashboard
+```
+
+| Método | Endpoint |
+|----------|----------|
+| GET | /stats |
+| GET | /analise/:grupo |
+
+---
+
+## Perfis
+
+Base URL:
+```http
+/api/perfis
+```
+
+| Método | Endpoint |
+|----------|----------|
+| GET | /posicoes |
+| GET | /substitutos |
+| GET | /:athlete |
 
 ---
 
@@ -66,7 +313,7 @@ Ferramentas e DevOps
 |RF02 |	Permitir importação de novos dados de desempenho	| Alta |
 |RF03	| Identificar perfis de jogadores através de IA	| Alta |
 |RF04	| Comparar atletas com base em indicadores de desempenho	| Média |
-|RF05	| Detectar quedas de desempenho automaticamente	| Alta |
+|RF05	| Detectar quedas de desempenho | Alta |
 |RF06	| Emitir alertas para a comissão técnica	| Média |
 |RF07	| Exibir dashboards e gráficos analíticos	| Alta |
 |RF08	| Disponibilizar acesso via dispositivos móveis	| Alta |
@@ -76,27 +323,21 @@ Ferramentas e DevOps
 # USER STORIES
 
 ### US01 – Importação de Dados
-
-Como analista de desempenho, quero importar dados históricos dos jogadores, 
-para que o sistema possa realizar análises e identificar padrões.
+Como analista de desempenho, quero importar dados históricos dos jogadores para realizar análises e identificar padrões.
 
 ### US02 – Comparação de Jogadores
-
 Como preparador físico, quero comparar jogadores com características semelhantes,
 para que eu possa definir treinamentos individualizados.
 
 ### US03 – Detecção de Queda de Desempenho
-
 Como membro da comissão técnica, quero receber alertas quando um atleta apresentar queda de desempenho,
 para agir preventivamente.
 
 ### US04 – Visualização de Indicadores
-
 Como analista, quero visualizar dashboards e gráficos,
 para interpretar os dados rapidamente.
 
 ### US05 – Acesso Mobile
-
 Como treinador, quero acessar as análises pelo celular,
 para acompanhar os atletas em qualquer lugar.
 
@@ -110,10 +351,10 @@ Uma atividade será considerada concluída quando:
 - Revisão realizada por outro integrante
 - Commit enviado para o repositório
 - Build executada sem erros
-- Testes realizados
-- Issue vinculada encerrada
+- Testes executados
+- Issue encerrada
 - Documentação atualizada
-- Integração com demais módulos validada
+- Integração validada
 
 ---
 
@@ -121,188 +362,158 @@ Uma atividade será considerada concluída quando:
 
 | Sprint | Data de Início | Data de Entrega | Status  |
 |--------|----------------|-----------------|---------|
-|  1     | :calendar: ➡ (13/04/2026) | 📆 ➡ (30/04/2026) |  Encerrado |
-|  2     | :calendar: ➡ (04/05/2026) | 📆 ➡ (21/05/2026) |  Encerrado |
-|  3     | :calendar: ➡ (25/05/2026) | 📆 ➡ (16/06/2026) |  Em Andamento |
+|  1     | (13/04/2026) | (30/04/2026) |  Encerrado |
+|  2     | (04/05/2026) | (21/05/2026) |  Encerrado |
+|  3     | (25/05/2026) | (16/06/2026) |  Encerrado |
 
 ---
 
-# DETALHAMENTO DAS SPRINTS
+# SPRINT BACKLOG
+|Issue | Atividade | Responsável | Status | Requisito |
+|------|-----------|-------------|------------|-----------|
+| #35	 | Autenticação JWT |	Luana Pinheiro | Entregue |	RNF02 |
+| #36	 | Validação de Entrada |	Luana Pinheiro | Entregue |	RNF02 |
+| #34	 | Criptografia de Dados | Luana Pinheiro | Entregue | RNF02 |
+| #33	 | Requisições HTTPS | Luana Pinheiro | Entregue |RNF02 |
+| #16	 | CRUD Jogadores |	Luana Pinheiro | Entregue | RF01 |
+| #17	 | Endpoint de Importação de Dados | Bruno Henrique	| Entregue | RF02 |
+| #18	 | Endpoint de Consulta de Desempenho |	Bruno Henrique | Entregue |	RF05 |
+| #27  | Exportação do Modelo Treinado | Bruno Henrique | Entregue | RF03 |
+| #28	 | Criação da API da IA | Bruno Henrique | Entregue |	RF03 |
+| #37  | Ajustes de Layout | Rodrigo & Edlaine | Entregue | RF01 |
+| #39	 | Testes de Usabilidade | Rodirgo & Edlaine | Entregue | RNF01 |
+| #40  | Correção de Bugs | Equipe | Entregue | RNF04 |
+| #38	 | Testes Integrados | André Ventura | Entregue | RNF04 |
+| #41	 | Deploy Backend |	André Michel | Entregue | RP02 |
+| #42	 | Deploy Banco de Dados |	André Michel | Entregue | RP02 |
+| #43	 | Deploy IA | André Michel | Entregue | RP02 |
+| #44	 | Build APK Flutter |	André Michel | Entregue | RF08 |
+
+---
+
+# RESUMO DAS SPRINTS
 
 ## Sprint 1 — Planejamento e Estruturação do Projeto
 
-### ✅ O que foi desenvolvido
+### O que foi desenvolvido
 
-- Configuração inicial do ambiente Flutter
-- Criação e organização do repositório no GitHub
-- Configuração do GitHub Projects
-- Definição do padrão de branches
-- Desenvolvimento dos wireframes da aplicação
-- Criação do protótipo navegável no Figma
-- Definição da identidade visual inicial
-- Validação do fluxo do usuário
-- Modelagem relacional do banco de dados
-- Desenvolvimento dos scripts SQL
-- Criação do diagrama de componentes
+- Levantamento dos requisitos do sistema
+- Construção do Product Backlog
+- Criação das User Stories
+- Definição da arquitetura inicial da solução
+- Modelagem do banco de dados PostgreSQL
+- Desenvolvimento dos wireframes
+- Construção do protótipo navegável no Figma
+- Organização do repositório GitHub
+- Definição do fluxo de trabalho da equipe
+- Planejamento das próximas sprints
 
-## ⚠️ Desafios encontrados
+### Desafios encontrados
 
-- Definição da arquitetura inicial do sistema
-- Organização das responsabilidades da equipe
-- Ajustes no fluxo de navegação da aplicação
-- Estruturação inicial do banco de dados
-- Padronização do versionamento Git
+- Definir a arquitetura do sistema
+- Estruturar a comunicação entre os módulos
+- Modelar os dados dos atletas
+- Organizar as responsabilidades da equipe
 
-## 🛠️ Tecnologias utilizadas
+### Tecnologias utilizadas
 
-<p>
-  <img src="https://skillicons.dev/icons?i=flutter,dart,figma,postgresql,git,github,vscode" />
-</p>
+- Figma
+- PostgreSQL
+- Git
+- GitHub
+- Flutter (estrutura inicial)
+- Dart
+- VS Code
 
 ---
 
 ##  Sprint 2 — Desenvolvimento das Funcionalidades
 
-## ✅ O que foi desenvolvido
+### O que foi desenvolvido
 
-- Desenvolvimento das telas funcionais do aplicativo
-- Implementação da estrutura base do Front-End
-- Integração do banco de dados PostgreSQL
-- Desenvolvimento da API principal
-- Criação dos endpoints da aplicação
-- Estruturação da comunicação entre serviços
-- Implementação da análise exploratória dos dados (EDA)
-- Desenvolvimento do modelo de rede neural
-- Aplicação de técnicas de Feature Engineering
-- Implementação de gráficos e dashboards
-- Configuração do GitHub Actions para automação
-- Estruturação da documentação da API
-- Desenvolvimento de testes unitários no backend
-- Implementação de testes de interface no Flutter
-- Realização de testes dos endpoints
-- Treinamento inicial do modelo de IA
-- Definição da arquitetura do sistema
+- Desenvolvimento do Dashboard Web
+- Desenvolvimento das telas do aplicativo Flutter
+- Criação da API Backend em Node.js
+- Implementação dos primeiros endpoints
+- Integração com PostgreSQL
+- Estruturação do módulo de Inteligência Artificial
+- Análise exploratória dos dados (EDA)
+- Treinamento inicial da rede neural
+- Desenvolvimento dos dashboards analíticos
+- Implementação das consultas de dados
+- Estruturação da documentação técnica
 
-## ⚠️ Desafios encontrados
+### Desafios encontrados
 
-- Integração entre IA e backend
-- Padronização da comunicação entre API e aplicativo mobile
-- Ajustes no treinamento e performance do modelo
-- Organização da estrutura de endpoints
-- Garantia de compatibilidade entre serviços
-- Performance das consultas no banco de dados
-- Estruturação inicial da automação de deploy e integração contínua
+- Integração entre Backend e IA
+- Padronização das APIs
+- Tratamento dos dados para treinamento
+- Performance das consultas ao banco
 
-## 🛠️ Tecnologias utilizadas
+### Tecnologias utilizadas
 
-<p>
-  <img src="https://skillicons.dev/icons?i=flutter,dart,react,typescript,nodejs,python,postgresql,docker,git,github" />
-</p>
+- React
+- TypeScript
+- Node.js
+- Express
+- PostgreSQL
+- Python
+- TensorFlow
+- Flutter
+- Dart
+- Git
+- GitHub
 
 ---
 
-## 🚀 Sprint 3 — Integração, Segurança e Deploy
+## Sprint 3 — Integração, Segurança e Deploy
 
-### 🔁 O que será desenvolvido
+### O que foi desenvolvido
 
-- Implementação da autenticação JWT
-- Desenvolvimento completo do CRUD de jogadores
-- Criação da API de IA integrada ao sistema
-- Implementação de criptografia de dados
-- Configuração de requisições HTTPS
-- Deploy do backend da aplicação
-- Deploy do banco de dados
-- Deploy do modelo de IA
-- Implementação do build APK Flutter
-- Criação de endpoints de importação de dados
-- Desenvolvimento de endpoint para consulta de desempenho
-- Integração da API de IA com o backend principal
+- Autenticação JWT
+- Criptografia de dados
+- Validação de entrada
+- Configuração HTTPS
+- CRUD completo de jogadores
+- API de IA
 - Exportação do modelo treinado
-- Ajustes finais de layout e usabilidade
-- Correção de bugs gerais da aplicação
-- Realização de testes integrados
-- Execução de testes de usabilidade
-- Validação de entradas e segurança de dados
-- Testes completos dos endpoints
-- Melhorias de performance da aplicação
+- Endpoint de consulta de desempenho
+- Endpoint de importação de dados
+- Integração IA ↔ Backend
+- Ajustes de layout
+- Correção de bugs
+- Melhorias de usabilidade
+- Testes integrados
+- Testes de usabilidade
+- Validação dos endpoints
+- Deploy do Backend
+- Deploy do Banco de Dados
+- Deploy da IA
+- Geração do APK Android
 
-### ⚠️ Desafios esperados
+### Desafios encontrados
 
-- Garantir segurança na comunicação entre serviços
-- Estabilizar a integração entre IA, backend e mobile
-- Otimizar o deploy dos serviços em produção
-- Garantir desempenho adequado da aplicação
-- Minimizar falhas durante integração contínua
-- Ajustar compatibilidade entre ambientes
-- Garantir confiabilidade nos testes integrados
+- Garantir segurança da aplicação
+- Estabilizar a comunicação entre serviços
+- Integrar IA, Backend e Frontend
+- Validar a aplicação em ambiente de produção
+- Garantir confiabilidade dos testes
 
-### 🛠️ Tecnologias utilizadas
+### Tecnologias utilizadas
 
-<p>
-  <img src="https://skillicons.dev/icons?i=flutter,dart,react,typescript,nodejs,python,postgresql,docker,git,github,nginx" /> 
-</p>
-
----
-
-# SPRINT BACKLOGS
-|Issue | Atividade | Responsável | Estimativa | Requisito |
-|------|-----------|-------------|------------|-----------|
-| #35	 | Autenticação JWT |	Eduardo |	8 pts |	RNF02 |
-| #36	 | Validação de Entrada |	Eduardo |	5 pts |	RNF02 |
-| #34	 | Criptografia de Dados | Eduardo | 8 pts | RNF02 |
-| #33	 | HTTPS | Eduardo | 3 pts |RNF02 |
-| #16	 | CRUD Jogadores |	Equipe Backend | 8 pts | RF01 |
-| #17	 | Importação de Dados | Equipe Backend	| 5 pts	| RF02 |
-| #18	 | Consulta de Desempenho |	Equipe IA	| 8 pts |	RF05 |
-| #22	 | Integração API IA | Equipe Backend	| 8 pts |	RF03 |
-| #39	 | Testes de Usabilidade | Equipe Frontend | 5 pts | RNF01 |
-| #38	 | Testes Integrados | Equipe QA | 8 pts | RNF04 |
-| #41	 | Deploy Backend |	DevOps | 5 pts | RP02 |
-| #42	 | Deploy Banco |	DevOps | 5 pts | RP02 |
-| #43	 | Deploy IA | DevOps | 5 pts	| RP02 |
-| #44	 | Build APK Flutter |	Mobile | 3 pts | RF08 |
-
----
-
-# SPRINT REVIEW
-
-# Sprint 1
-
-## O que funcionou bem
-
-- Organização inicial da equipe
-- Criação do protótipo
-- Definição da arquitetura
-
-## O que pode melhorar
-
-- Melhor detalhamento das tarefas
-- Maior frequência de reuniões
-
-## Ações para Sprint 2
-
-- Iniciar desenvolvimento da API
-- Estruturar modelo de IA
-- Criar dashboards
-
-# Sprint 2
-
-## O que funcionou bem
-
-- Desenvolvimento das funcionalidades principais
-- Integração inicial entre IA e backend
-- Testes automatizados
-
-## O que pode melhorar
-
-- Rastreabilidade entre requisitos e tarefas
-- Documentação Scrum
-
-## Ações para Sprint 3
-
-- Finalizar deploy
-- Melhorar segurança
-- Formalizar artefatos Scrum
+- React
+- TypeScript
+- Node.js
+- Express
+- PostgreSQL
+- Python
+- TensorFlow
+- Flutter
+- Dart
+- JWT
+- BCrypt
+- Git
+- GitHub
 
 ---
 
@@ -322,64 +533,15 @@ Uma atividade será considerada concluída quando:
 
 # BURNDOWN SP3
  <div align = center>
- <img src="">
+ <img src="./assets/burndown-sp3.png" width="700">
  </div>
-
----
-
-# COMO EXECUTAR
-
-## Rodar o Backend
-
-No terminal, acesse a pasta do backend e execute:
-
-```bash
-cd backend
-npm install
-npm run dev
-```
-
----
-
-## Rodar o Frontend
-
-No terminal, acesse a pasta do frontend e execute:
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
----
-
-## Rodar o Mobile
-
-Se estiver utilizando Flutter, execute:
-
-```bash
-cd mobile
-flutter pub get
-flutter run
-```
-
----
-
-## Rodar a IA
-
-Instale as dependências e execute a aplicação:
-
-```bash
-pip install -r requirements.txt
-python app.py
-```
 
 ---
 
 # 🔗 LINKS
 
 ### BACKLOG DO PRODUTO 
-[Clique Aqui](https://github.com/HighTechDSM/ABP_5_DSM/issues)
+[Clique Aqui](https://github.com/orgs/HighTechDSM/projects/2)
 
 
 ### Prototipo do aplicativo

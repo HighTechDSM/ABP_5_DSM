@@ -1,32 +1,65 @@
-// backend/src/routes/jogadorRoutes.ts
 import { Router } from 'express';
 import { JogadorController } from '../controllers/jogadorController';
 import { authMiddleware } from '../middleware/authMiddleware';
 
 const router = Router();
 
-// Rotas específicas DEVEM vir antes das rotas com parâmetros genéricos
-// para evitar conflitos (ex: /estatisticas não ser confundido com /:athlete)
+// Estatísticas gerais do dashboard
+router.get(
+  '/estatisticas',
+  authMiddleware,
+  JogadorController.getEstatisticasGerais
+);
 
-// Rota para estatísticas gerais
-router.get('/estatisticas', authMiddleware, JogadorController.getEstatisticasGerais);
+router.get(
+  '/id/:athleteId/historico',
+  authMiddleware,
+  JogadorController.getHistoricoJogador
+);
 
-// Rota para buscar por ID
-router.get('/id/:id', authMiddleware, JogadorController.getJogadorById);
+// Buscar jogador por Athlete ID
+router.get(
+  '/id/:athleteId',
+  authMiddleware,
+  JogadorController.getJogadorById
+);
 
-// Rota para buscar por grupo
-router.get('/grupo/:grupo', authMiddleware, JogadorController.getJogadoresByGrupo);
+// Buscar jogadores por grupo
+router.get(
+  '/grupo/:grupo',
+  authMiddleware,
+  JogadorController.getJogadoresByGrupo
+);
 
-// Rota para buscar por rendimento
-router.get('/rendimento/:rendimento', authMiddleware, JogadorController.getJogadoresByRendimento);
+router.get('/jogadores/comparar/:id', JogadorController.getComparacao);
 
-// Rota para buscar por perfil
-router.get('/perfil/:perfil', authMiddleware, JogadorController.getJogadoresByPerfil);
+// Buscar jogadores por rendimento
+router.get(
+  '/rendimento/:rendimento',
+  authMiddleware,
+  JogadorController.getJogadoresByRendimento
+);
 
-// Rota para buscar todos os jogadores
-router.get('/', authMiddleware, JogadorController.getAllJogadores);
+// Buscar jogadores por perfil
+router.get(
+  '/perfil/:perfil',
+  authMiddleware,
+  JogadorController.getJogadoresByPerfil
+);
 
-// Rota para buscar por nome (DEVE SER A ÚLTIMA, pois é genérica)
-router.get('/:athlete', authMiddleware, JogadorController.getJogadorByAthlete);
+// Listar todos os jogadores
+router.get(
+  '/',
+  authMiddleware,
+  JogadorController.getAllJogadores
+);
+
+// Buscar jogador pelo nome
+// DEVE SER A ÚLTIMA ROTA
+router.get(
+  '/:athlete',
+  authMiddleware,
+  JogadorController.getJogadorByAthlete
+);
 
 export default router;

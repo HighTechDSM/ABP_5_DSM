@@ -47,6 +47,11 @@ export const JogadorService = {
     }
   },
 
+
+async getEvolucaoMediaElenco() {
+  return await DadosExtraidosModel.getEvolucaoMediaElenco();
+},
+
   async getJogadorByAthlete(athlete: string): Promise<JogadorStats | null> {
     try {
       // Buscar todos os atletas com o mesmo nome
@@ -74,6 +79,41 @@ export const JogadorService = {
       return null;
     }
   },
+
+  async compararJogador(id: number) {
+  const todos = await this.getAllJogadores();
+  const alvo = todos.find(j => j.numero === id);
+
+  if (!alvo) return null;
+
+  const resultado = todos
+    .filter(j => j.numero !== id)
+    .map(j => {
+      const mesmaPosicao = j.posicao === alvo.posicao ? 100 : 0;
+
+      const diffVel = Math.abs(j.velocidadeMax - alvo.velocidadeMax);
+      const diffDist = Math.abs(j.distancia - alvo.distancia);
+
+      const score =
+        mesmaPosicao -
+        diffVel -
+        diffDist / 100;
+
+      return {
+        jogador: j,
+        score: Number(score.toFixed(2)),
+        diffVel,
+        diffDist
+      };
+    })
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 5);
+
+  return {
+    alvo,
+    similares: resultado
+  };
+},
 
   async getJogadoresByGrupo(grupo: string): Promise<JogadorStats[]> {
     try {

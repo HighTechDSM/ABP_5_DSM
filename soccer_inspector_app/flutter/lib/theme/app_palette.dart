@@ -56,11 +56,11 @@ class AppPalette {
   );
 
   static List<BoxShadow> glow = [
-    BoxShadow(color: primary.withOpacity(0.35), blurRadius: 32, offset: const Offset(0, 12)),
+    BoxShadow(color: primary.withValues(alpha: 0.35), blurRadius: 32, offset: const Offset(0, 12)),
   ];
 
   static List<BoxShadow> card = [
-    BoxShadow(color: Colors.black.withOpacity(0.55), blurRadius: 24, offset: const Offset(0, 8)),
+    BoxShadow(color: Colors.black.withValues(alpha: 0.55), blurRadius: 24, offset: const Offset(0, 8)),
   ];
 
   static BorderRadius radiusLg = BorderRadius.circular(20);
@@ -96,7 +96,7 @@ class AppTheme {
         hintStyle: const TextStyle(color: AppPalette.mutedFg),
         border: OutlineInputBorder(
           borderRadius: AppPalette.radiusMd,
-          borderSide: BorderSide(color: AppPalette.border),
+          borderSide: const BorderSide(color: AppPalette.border),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: AppPalette.radiusMd,

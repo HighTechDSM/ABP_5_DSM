@@ -37,6 +37,50 @@ class _PerfisScreenState extends State<PerfisScreen> {
     setState(() => _isLoading = false);
   }
 
+void _openJogador(BuildContext context, dynamic j) {
+  debugPrint('JOGADOR COMPLETO: $j');
+
+  final jogadorId = j['numero'];
+  final jogadorNome = j['nome'] ?? 'Jogador';
+  final rendimento = j['rendimento'] ?? 'regular';
+
+  debugPrint('👉 Abrindo jogador ID=$jogadorId Nome=$jogadorNome');
+
+  if (jogadorId == null) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Jogador inválido (ID não encontrado)'),
+      ),
+    );
+    return;
+  }
+
+  // ⚠️ AQUI É O PONTO CERTO DO IF
+  if (rendimento == 'baixo') {
+    Navigator.pushNamed(
+      context,
+      '/jogador',
+      arguments: {
+        'id': jogadorId,
+        'nome': jogadorNome,
+        'mostrarMotivos': true, // 👈 flag importante
+      },
+    );
+    return;
+  }
+
+  // fluxo normal
+  Navigator.pushNamed(
+    context,
+    '/jogador',
+    arguments: {
+      'id': jogadorId,
+      'nome': jogadorNome,
+      'mostrarMotivos': false,
+    },
+  );
+}
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -55,7 +99,9 @@ class _PerfisScreenState extends State<PerfisScreen> {
                 onRefresh: _loadData,
                 child: Consumer<PerfisProvider>(
                   builder: (context, provider, child) {
-                    if (_isLoading || (provider.isLoading && provider.perfisPorPosicao == null)) {
+                    if (_isLoading ||
+                        (provider.isLoading &&
+                            provider.perfisPorPosicao == null)) {
                       return const Center(child: CircularProgressIndicator());
                     }
 
@@ -65,19 +111,20 @@ class _PerfisScreenState extends State<PerfisScreen> {
                     if (_filtro == 'Todos') {
                       grupos = perfisMap.entries.toList();
                     } else {
-                      final jogadoresFiltrados = <String, List<dynamic>>{};
+                      final filtrados = <String, List<dynamic>>{};
+
                       for (var entry in perfisMap.entries) {
-                        final jogadoresFiltradosPorPerfil =
-                            (entry.value as List).where((j) {
-                          final perfilJogador = j['perfil'] ?? 'Regular';
-                          return perfilJogador == _filtro;
-                        }).toList();
-                        if (jogadoresFiltradosPorPerfil.isNotEmpty) {
-                          jogadoresFiltrados[entry.key] =
-                              jogadoresFiltradosPorPerfil;
+                        final listaFiltrada = (entry.value as List)
+                            .where((j) =>
+                                (j['perfil'] ?? 'Regular') == _filtro)
+                            .toList();
+
+                        if (listaFiltrada.isNotEmpty) {
+                          filtrados[entry.key] = listaFiltrada;
                         }
                       }
-                      grupos = jogadoresFiltrados.entries.toList();
+
+                      grupos = filtrados.entries.toList();
                     }
 
                     return ListView(
@@ -96,55 +143,32 @@ class _PerfisScreenState extends State<PerfisScreen> {
                           'Encontre substitutos compatíveis por posição e perfil.',
                           style: TextStyle(color: AppPalette.mutedFg),
                         ),
-                        const SizedBox(height: 12),
-                        GlassCard(
-                          borderColor: AppPalette.accent.withOpacity(0.4),
-                          padding: const EdgeInsets.all(12),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [
-                              Icon(
-                                Icons.info_outline,
-                                size: 16,
-                                color: AppPalette.accent,
-                              ),
-                              SizedBox(width: 8),
-                              Expanded(
-                                child: Text(
-                                  'O perfil ajuda a encontrar o melhor substituto da mesma posição. '
-                                  'A prioridade é compatibilidade de perfil, depois métricas físicas.',
-                                  style: TextStyle(
-                                    fontSize: 11,
-                                    color: AppPalette.mutedFg,
-                                    height: 1.5,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(height: 12),
+                        const SizedBox(height: 16),
+
+                        // FILTROS
                         SizedBox(
                           height: 36,
                           child: ListView.separated(
                             scrollDirection: Axis.horizontal,
                             itemCount: perfis.length,
-                            separatorBuilder: (_, __) => const SizedBox(width: 6),
+                            separatorBuilder: (_, __) =>
+                                const SizedBox(width: 6),
                             itemBuilder: (_, i) {
                               final p = perfis[i];
                               final active = _filtro == p;
+
                               return GestureDetector(
                                 onTap: () => setState(() => _filtro = p),
                                 child: Container(
                                   padding: const EdgeInsets.symmetric(
-                                    horizontal: 14,
-                                    vertical: 6,
-                                  ),
+                                      horizontal: 14, vertical: 6),
                                   decoration: BoxDecoration(
                                     gradient: active
                                         ? AppPalette.primaryGradient
                                         : null,
-                                    color: active ? null : AppPalette.surface2,
+                                    color: active
+                                        ? null
+                                        : AppPalette.surface2,
                                     borderRadius: BorderRadius.circular(999),
                                   ),
                                   child: Text(
@@ -162,95 +186,55 @@ class _PerfisScreenState extends State<PerfisScreen> {
                             },
                           ),
                         ),
+
                         const SizedBox(height: 16),
+
+                        // LISTA
                         ...grupos.map((entry) {
                           final posicao = entry.key;
-                          final jogadoresLista = entry.value as List;
+                          final jogadores = entry.value as List;
+
                           return Padding(
                             padding: const EdgeInsets.only(bottom: 16),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      posicao.toUpperCase(),
-                                      style: const TextStyle(
-                                        fontSize: 11,
-                                        color: AppPalette.mutedFg,
-                                        letterSpacing: 1.5,
-                                        fontWeight: FontWeight.w800,
-                                      ),
-                                    ),
-                                    if (jogadoresLista.length > 1)
-                                      Row(
-                                        children: [
-                                          const Icon(
-                                            Icons.swap_horiz,
-                                            size: 12,
-                                            color: AppPalette.accent,
-                                          ),
-                                          const SizedBox(width: 4),
-                                          Text(
-                                            '${jogadoresLista.length} compatíveis',
-                                            style: const TextStyle(
-                                              fontSize: 10,
-                                              color: AppPalette.accent,
-                                              fontWeight: FontWeight.w800,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                  ],
+                                Text(
+                                  posicao.toUpperCase(),
+                                  style: const TextStyle(
+                                    fontSize: 11,
+                                    color: AppPalette.mutedFg,
+                                    fontWeight: FontWeight.w800,
+                                    letterSpacing: 1.2,
+                                  ),
                                 ),
                                 const SizedBox(height: 8),
-                                ...jogadoresLista.map((j) => Padding(
-                                      padding: const EdgeInsets.only(bottom: 8),
+
+                                ...jogadores.map((j) => Padding(
+                                      padding:
+                                          const EdgeInsets.only(bottom: 8),
                                       child: InkWell(
-                                        borderRadius: AppPalette.radiusLg,
-                                        onTap: () {
-                                          // Verificar se o ID existe
-                                          final jogadorId = j['id'];
-                                          final jogadorNome = j['nome'];
-                                          
-                                          print('Navegando para análise do jogador: ID=$jogadorId, Nome=$jogadorNome');
-                                          
-                                          if (jogadorId != null) {
-                                            Navigator.pushNamed(
-                                              context, 
-                                              '/jogador', 
-                                              arguments: {
-                                                'id': jogadorId,
-                                                'nome': jogadorNome
-                                              }
-                                            );
-                                          } else {
-                                            // Fallback para navegar por nome se ID não existir
-                                            Navigator.pushNamed(
-                                              context, 
-                                              '/jogador', 
-                                              arguments: {
-                                                'id': j['numero'] ?? 0,
-                                                'nome': jogadorNome
-                                              }
-                                            );
-                                          }
-                                        },
+                                        borderRadius:
+                                            AppPalette.radiusLg,
+                                        onTap: () => _openJogador(context, j),
                                         child: GlassCard(
                                           padding: const EdgeInsets.symmetric(
-                                              horizontal: 12, vertical: 12),
+                                              horizontal: 12,
+                                              vertical: 12),
                                           child: Row(
                                             children: [
                                               JerseyAvatar(
-                                                  numero: j['numero'] ?? 0,
-                                                  size: isMobile ? 36 : 40),
+                                                numero:
+                                                    j['numero'] ?? 0,
+                                                size: isMobile ? 36 : 40,
+                                              ),
                                               const SizedBox(width: 12),
+
                                               Expanded(
                                                 child: Column(
                                                   crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
+                                                      CrossAxisAlignment
+                                                          .start,
                                                   children: [
                                                     Text(
                                                       j['nome'] ?? '',
@@ -261,11 +245,12 @@ class _PerfisScreenState extends State<PerfisScreen> {
                                                       ),
                                                     ),
                                                     Text(
-                                                      j['perfil'] ?? 'Regular',
+                                                      j['perfil'] ??
+                                                          'Regular',
                                                       style: const TextStyle(
                                                         fontSize: 11,
-                                                        color:
-                                                            AppPalette.mutedFg,
+                                                        color: AppPalette
+                                                            .mutedFg,
                                                       ),
                                                     ),
                                                   ],
@@ -281,14 +266,16 @@ class _PerfisScreenState extends State<PerfisScreen> {
                                                       fontSize: 14,
                                                       fontWeight:
                                                           FontWeight.w800,
-                                                      color: AppPalette.primary,
+                                                      color:
+                                                          AppPalette.primary,
                                                     ),
                                                   ),
                                                   const Text(
                                                     'km/h',
                                                     style: TextStyle(
                                                       fontSize: 9,
-                                                      color: AppPalette.mutedFg,
+                                                      color: AppPalette
+                                                          .mutedFg,
                                                     ),
                                                   ),
                                                 ],
@@ -307,8 +294,9 @@ class _PerfisScreenState extends State<PerfisScreen> {
                             padding: EdgeInsets.symmetric(vertical: 30),
                             child: Center(
                               child: Text(
-                                'Nenhum jogador encontrado para este perfil.',
-                                style: TextStyle(color: AppPalette.mutedFg),
+                                'Nenhum jogador encontrado.',
+                                style:
+                                    TextStyle(color: AppPalette.mutedFg),
                               ),
                             ),
                           ),

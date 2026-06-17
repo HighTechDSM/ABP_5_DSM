@@ -56,7 +56,7 @@ class JerseyAvatar extends StatelessWidget {
         gradient: AppPalette.primaryGradient,
         borderRadius: AppPalette.radiusMd,
         boxShadow: [
-          BoxShadow(color: AppPalette.primary.withOpacity(0.45),
+          BoxShadow(color: AppPalette.primary.withValues(alpha: 0.45),
               blurRadius: 14, offset: const Offset(0, 6)),
         ],
       ),
@@ -79,7 +79,7 @@ class StatusPill extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
       decoration: BoxDecoration(
-        color: color.withOpacity(0.18),
+        color: color.withValues(alpha: 0.18),
         borderRadius: BorderRadius.circular(999),
       ),
       child: Text(label,

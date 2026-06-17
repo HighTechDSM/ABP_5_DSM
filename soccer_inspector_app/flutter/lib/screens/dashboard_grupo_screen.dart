@@ -206,7 +206,7 @@ class DashboardGrupoScreen extends StatelessWidget {
             height: 32,
             alignment: Alignment.center,
             decoration: BoxDecoration(
-              color: color.withOpacity(0.18),
+              color: color.withValues(alpha: 0.18),
               borderRadius: AppPalette.radiusSm,
             ),
             child: Icon(icon, size: 16, color: color),

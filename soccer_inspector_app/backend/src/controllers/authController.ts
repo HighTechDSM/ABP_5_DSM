@@ -1,4 +1,3 @@
-// backend/src/controllers/authController.ts
 import { Request, Response } from 'express';
 import { AuthService } from '../services/authService';
 
@@ -30,14 +29,11 @@ export const AuthController = {
     try {
       const { email, password } = req.body;
       
-      console.log('Login attempt:', { email });
-      
       if (!email || !password) {
         return res.status(400).json({ error: 'E-mail e senha são obrigatórios' });
       }
       
       const result = await AuthService.login({ email, password });
-      console.log('Login success:', { email });
       res.json(result);
     } catch (error: any) {
       console.error('Login error:', error);

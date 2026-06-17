@@ -2,18 +2,13 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:flutter/foundation.dart';
+import 'package:soccer_inspector/services/config.dart';
 
 class ApiService {
-  static String get baseUrl {
-    if (kIsWeb) {
-      return 'http://localhost:3000/api';
-    } else {
-      return 'http://10.0.2.2:3000/api';
-    }
-  }
+  static String get baseUrl => Config.apiUrl;
 
-  static final FlutterSecureStorage _storage = const FlutterSecureStorage();
+  static const FlutterSecureStorage _storage = FlutterSecureStorage();
 
   static Future<void> saveToken(String token) async {
     await _storage.write(key: 'auth_token', value: token);
@@ -37,7 +32,7 @@ class ApiService {
 
   static Future<Map<String, dynamic>> login(String email, String password) async {
     final url = Uri.parse('$baseUrl/auth/login');
-    print('Login URL: $url');
+    debugPrint('Login URL: $url');
     
     final response = await http.post(
       url,
@@ -45,8 +40,8 @@ class ApiService {
       body: jsonEncode({'email': email, 'password': password}),
     );
 
-    print('Login response status: ${response.statusCode}');
-    print('Login response body: ${response.body}');
+    debugPrint('Login response status: ${response.statusCode}');
+    debugPrint('Login response body: ${response.body}');
 
     if (response.statusCode == 200 || response.statusCode == 201) {
       final data = jsonDecode(response.body);
@@ -66,7 +61,7 @@ class ApiService {
 
   static Future<Map<String, dynamic>> register(String name, String email, String password) async {
     final url = Uri.parse('$baseUrl/auth/register');
-    print('Register URL: $url');
+    debugPrint('Register URL: $url');
     
     final response = await http.post(
       url,
@@ -74,8 +69,8 @@ class ApiService {
       body: jsonEncode({'name': name, 'email': email, 'password': password}),
     );
 
-    print('Register response status: ${response.statusCode}');
-    print('Register response body: ${response.body}');
+    debugPrint('Register response status: ${response.statusCode}');
+    debugPrint('Register response body: ${response.body}');
 
     if (response.statusCode == 201) {
       final data = jsonDecode(response.body);
@@ -109,7 +104,7 @@ class ApiService {
       if (token == null) return null;
       
       final url = Uri.parse('$baseUrl/jogadores/id/$id');
-      print('Fetching jogador by ID from: $url');
+      debugPrint('Fetching jogador by ID from: $url');
       
       final response = await http.get(
         url,
@@ -119,15 +114,15 @@ class ApiService {
         },
       );
       
-      print('Jogador by ID response status: ${response.statusCode}');
-      print('Jogador by ID response body: ${response.body}');
+      debugPrint('Jogador by ID response status: ${response.statusCode}');
+      debugPrint('Jogador by ID response body: ${response.body}');
       
       if (response.statusCode == 200) {
         return jsonDecode(response.body);
       }
       return null;
     } catch (e) {
-      print('Exception fetching jogador by ID: $e');
+      debugPrint('Exception fetching jogador by ID: $e');
       return null;
     }
   }
@@ -139,7 +134,7 @@ class ApiService {
       if (token == null) return [];
       
       final url = Uri.parse('$baseUrl/jogadores');
-      print('Fetching jogadores from: $url');
+      debugPrint('Fetching jogadores from: $url');
       
       final response = await http.get(
         url,
@@ -149,22 +144,22 @@ class ApiService {
         },
       );
       
-      print('Jogadores response status: ${response.statusCode}');
-      print('Jogadores response body: ${response.body}');
+      debugPrint('Jogadores response status: ${response.statusCode}');
+      debugPrint('Jogadores response body: ${response.body}');
       
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
         if (data is List) {
-          print('Found ${data.length} jogadores');
+          debugPrint('Found ${data.length} jogadores');
           return data;
         }
         return [];
       } else {
-        print('Error fetching jogadores: ${response.statusCode}');
+        debugPrint('Error fetching jogadores: ${response.statusCode}');
         return [];
       }
     } catch (e) {
-      print('Exception fetching jogadores: $e');
+      debugPrint('Exception fetching jogadores: $e');
       return [];
     }
   }
@@ -174,22 +169,22 @@ class ApiService {
       final headers = await _getHeaders();
       final url = Uri.parse('$baseUrl/dashboard/stats');
       
-      print('Fetching dashboard stats from: $url');
+      debugPrint('Fetching dashboard stats from: $url');
       
       final response = await http.get(url, headers: headers);
       
-      print('Dashboard stats response: ${response.statusCode}');
-      print('Dashboard stats body: ${response.body}');
+      debugPrint('Dashboard stats response: ${response.statusCode}');
+      debugPrint('Dashboard stats body: ${response.body}');
       
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
         return data;
       } else {
-        print('Error fetching dashboard stats: ${response.statusCode}');
+        debugPrint('Error fetching dashboard stats: ${response.statusCode}');
         return _getDefaultDashboardStats();
       }
     } catch (e) {
-      print('Exception fetching dashboard stats: $e');
+      debugPrint('Exception fetching dashboard stats: $e');
       return _getDefaultDashboardStats();
     }
   }
@@ -216,7 +211,7 @@ class ApiService {
       if (token == null) return null;
       
       final url = Uri.parse('$baseUrl/perfis/posicoes');
-      print('Fetching perfis from: $url');
+      debugPrint('Fetching perfis from: $url');
       
       final response = await http.get(
         url,
@@ -226,20 +221,34 @@ class ApiService {
         },
       );
       
-      print('Perfis response status: ${response.statusCode}');
-      print('Perfis response body: ${response.body}');
+      debugPrint('Perfis response status: ${response.statusCode}');
+      debugPrint('Perfis response body: ${response.body}');
       
       if (response.statusCode == 200) {
         return jsonDecode(response.body);
       } else {
-        print('Error fetching perfis: ${response.statusCode}');
+        debugPrint('Error fetching perfis: ${response.statusCode}');
         return {};
       }
     } catch (e) {
-      print('Exception fetching perfis: $e');
+      debugPrint('Exception fetching perfis: $e');
       return {};
     }
   }
+
+static Future<List<dynamic>> getEvolucaoMediaElenco() async {
+  final response = await http.get(
+    Uri.parse('$baseUrl/dashboard/evolucao'),
+  );
+
+  if (response.statusCode == 200) {
+    return jsonDecode(response.body);
+  }
+
+  throw Exception(
+    'Erro ao carregar evolução do elenco'
+  );
+}
 
   static Future<List<dynamic>> encontrarSubstitutos(String posicao, String perfil) async {
     try {
@@ -247,7 +256,7 @@ class ApiService {
       if (token == null) return [];
       
       final url = Uri.parse('$baseUrl/perfis/substitutos?posicao=${Uri.encodeComponent(posicao)}&perfil=${Uri.encodeComponent(perfil)}');
-      print('Finding substitutos from: $url');
+      debugPrint('Finding substitutos from: $url');
       
       final response = await http.get(
         url,
@@ -257,7 +266,7 @@ class ApiService {
         },
       );
       
-      print('Substitutos response status: ${response.statusCode}');
+      debugPrint('Substitutos response status: ${response.statusCode}');
       
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
@@ -267,7 +276,7 @@ class ApiService {
       }
       return [];
     } catch (e) {
-      print('Exception finding substitutos: $e');
+      debugPrint('Exception finding substitutos: $e');
       return [];
     }
   }
@@ -278,7 +287,7 @@ class ApiService {
       if (token == null) return null;
       
       final url = Uri.parse('$baseUrl/perfis/${Uri.encodeComponent(athlete)}');
-      print('Getting perfil jogador from: $url');
+      debugPrint('Getting perfil jogador from: $url');
       
       final response = await http.get(
         url,
@@ -288,14 +297,14 @@ class ApiService {
         },
       );
       
-      print('Perfil jogador response status: ${response.statusCode}');
+      debugPrint('Perfil jogador response status: ${response.statusCode}');
       
       if (response.statusCode == 200) {
         return jsonDecode(response.body);
       }
       return null;
     } catch (e) {
-      print('Exception getting perfil jogador: $e');
+      debugPrint('Exception getting perfil jogador: $e');
       return null;
     }
   }
