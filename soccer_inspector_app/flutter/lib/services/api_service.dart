@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter/foundation.dart';
-import 'package:soccer_stats_hub/services/config.dart';
+import 'package:soccer_inspector/services/config.dart';
 
 class ApiService {
   static String get baseUrl => Config.apiUrl;

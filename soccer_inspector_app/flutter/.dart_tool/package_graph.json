@@ -1,10 +1,10 @@
 {
   "roots": [
-    "soccer_stats_hub"
+    "soccer_inspector"
   ],
   "packages": [
     {
-      "name": "soccer_stats_hub",
+      "name": "soccer_inspector",
       "version": "1.0.0+1",
       "dependencies": [
         "cupertino_icons",

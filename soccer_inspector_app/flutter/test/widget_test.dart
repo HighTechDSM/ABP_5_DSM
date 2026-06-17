@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:soccer_stats_hub/main.dart';
+import 'package:soccer_inspector/main.dart';
 
 void main() {
   testWidgets('Aplicação inicia corretamente', (WidgetTester tester) async {

@@ -476,7 +476,7 @@
       "languageVersion": "3.4"
     },
     {
-      "name": "soccer_stats_hub",
+      "name": "soccer_inspector",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "3.0"

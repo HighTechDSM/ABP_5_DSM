@@ -1,4 +1,4 @@
-name: soccer_stats_hub
+name: soccer_inspector
 description: "Um aplicativo Flutter para análise de estatísticas de futebol."
 publish_to: 'none'
 
