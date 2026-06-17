@@ -537,7 +537,7 @@ Uma atividade será considerada concluída quando:
 
 # BURNDOWN SP3
  <div align = center>
- <img src="">
+ <img src="./assets/burndown-sp3.png" width="700">
  </div>
 
 ---
