@@ -365,9 +365,9 @@ Uma atividade será considerada concluída quando:
 
 | Sprint | Data de Início | Data de Entrega | Status  |
 |--------|----------------|-----------------|---------|
-|  1     | :calendar: ➡ (13/04/2026) | 📆 ➡ (30/04/2026) |  Encerrado |
-|  2     | :calendar: ➡ (04/05/2026) | 📆 ➡ (21/05/2026) |  Encerrado |
-|  3     | :calendar: ➡ (25/05/2026) | 📆 ➡ (16/06/2026) |  Encerrado |
+|  1     | (13/04/2026) | (30/04/2026) |  Encerrado |
+|  2     | (04/05/2026) | (21/05/2026) |  Encerrado |
+|  3     | (25/05/2026) | (16/06/2026) |  Encerrado |
 
 ---
 
