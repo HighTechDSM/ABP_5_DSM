@@ -11,7 +11,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import pandas as pd
 import joblib
-
+from fastapi.middleware.cors import CORSMiddleware
 # ==========================================
 # CARREGAMENTO DOS MODELOS
 # ==========================================
@@ -34,6 +34,13 @@ app = FastAPI(
     version="2.0"
 )
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # para testes
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 # ==========================================
 # INPUT
 # ==========================================
@@ -199,6 +206,76 @@ def prever(jogador: Jogador):
             label_encoder
             .inverse_transform(pred)
         )
+
+  # ==========================
+        # ANÁLISE TEXTUAL
+        # ==========================
+
+        analise = ""
+
+        classificacao = str(pred_label[0])
+
+        if classificacao == "Declining":
+            analise += (
+                "O atleta apresenta sinais de queda de desempenho físico em relação ao padrão esperado. "
+            )
+
+        elif classificacao == "Improving":
+            analise += (
+                "O atleta demonstra evolução de desempenho e apresenta indicadores físicos positivos. "
+            )
+
+        elif classificacao == "Stable":
+            analise += (
+                "O atleta mantém um desempenho consistente e dentro dos padrões esperados. "
+            )
+
+        else:
+            analise += (
+                f"O atleta foi classificado como {classificacao}. "
+            )
+
+        if anomaly == 1:
+            analise += (
+                "Os dados atuais apresentam comportamento fora do histórico do atleta, indicando uma possível anomalia."
+            )
+        else:
+            analise += (
+                "Os dados analisados estão dentro do comportamento histórico esperado."
+            )
+
+        if cluster == 0:
+            nome_cluster = "Alta Intensidade"
+
+        elif cluster == 1:
+            nome_cluster = "Desempenho Equilibrado"
+
+        else:
+            nome_cluster = "Baixa Intensidade"
+
+        analise += (
+            f" O jogador pertence ao grupo '{nome_cluster}'."
+        )
+
+        # ==========================
+        # RETORNO
+        # ==========================
+
+        return {
+
+            "athlete_id": jogador.athlete_id,
+
+            "cluster": cluster,
+
+            "cluster_name": nome_cluster,
+
+            "anomaly": anomaly,
+
+            "prediction": classificacao,
+
+            "analysis": analise
+
+        }
 
         # ==========================
         # RETORNO
