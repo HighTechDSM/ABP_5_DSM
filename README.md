@@ -544,7 +544,7 @@ Uma atividade será considerada concluída quando:
 # 🔗 LINKS
 
 ### BACKLOG DO PRODUTO 
-[Clique Aqui](https://github.com/HighTechDSM/ABP_5_DSM/issues)
+[Clique Aqui](https://github.com/orgs/HighTechDSM/projects/2)
 
 
 ### Prototipo do aplicativo
