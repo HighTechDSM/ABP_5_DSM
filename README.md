@@ -146,7 +146,15 @@ ABP_5_DSM
 
 # COMO EXECUTAR PROJETO
 
-## Pré-requisitos
+## Acesso web
+Para visualizar o projeto hospedado online acesse:
+
+https://soccerinspector.netlify.app/
+
+---
+
+## Acesso ao projeto
+Pra executar o projeto tenha como pré-requisitos:
 - Node.js 20+
 - PostgreSQL 15+
 - Flutter SDK 3+
